@@ -8,8 +8,7 @@ SHELL = /bin/sh
 
 PAR_4 = par
 PAR = par
-CXX = icc
-LD  = icc
+CXX = mpicc
 
 SEQ = par
 BIN = bin
