@@ -6,12 +6,12 @@
 
 SHELL = /bin/sh
 
-PAR_4 = par_reducao
+PAR_4 = par
 PAR = par
-CXX = i++
-LD  = i++
+CXX = icc
+LD  = icc
 
-SEQ = seq
+SEQ = par
 BIN = bin
 BIN_SEQ = pcp_tp1_seq
 BIN_PAR = pcp_tp1_par

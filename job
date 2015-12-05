@@ -1,6 +1,6 @@
 ## FICHEIRO MODELO PBS CRIADO PARA A DISCIPLINA DE CPD::PCP
 ## GRUPO : FILIPE OLIVEIRA E SERGIO CALDAS
-## OUT/2015
+## DEZ/2015
 
 #!/bin/sh
 
@@ -9,7 +9,7 @@
 #          PBS directives must come first; any directives
 #          after the first executable statement are ignored.
 
-#PBS -N pcp_tp1
+#PBS -N pcp_tp2
 #PBS -l walltime=00:30:00
 #PBS -q mei
 
@@ -24,6 +24,7 @@
 
 #PBS -m abe
 #PBS -M a57816@alunos.uminho.pt
+#PBS -M a57779@alunos.uminho.pt
 
 #          Specify the number of nodes requested and the
 #          number of processors per node. 
@@ -31,13 +32,12 @@
 #PBS -l nodes=1:ppn=48
 
 module purge
-module load gnu/4.9.0
+module load intel/2013.1.117
    
 echo "Done Loading Modules..."
 
+cd MPI_Parallel-Computing-Paradigms
 cd PCP_Project
-make clean
-make
 
 read -r node_info<$PBS_NODEFILE
 
