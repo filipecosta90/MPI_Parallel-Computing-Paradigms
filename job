@@ -1,0 +1,69 @@
+## FICHEIRO MODELO PBS CRIADO PARA A DISCIPLINA DE CPD::PCP
+## GRUPO : FILIPE OLIVEIRA E SERGIO CALDAS
+## OUT/2015
+
+#!/bin/sh
+
+#          Remarks: A line beginning with # is a comment.
+#          A line beginning with #PBS is a PBS directive.
+#          PBS directives must come first; any directives
+#          after the first executable statement are ignored.
+
+#PBS -N pcp_tp1
+#PBS -l walltime=00:30:00
+#PBS -q mei
+
+#          PBS can send informative email messages to you about the
+#          status of your job.  Specify a string which consists of
+#          either the single character "n" (no mail), or one or more
+#          of the characters "a" (send mail when job is aborted),
+#          "b" (send mail when job begins), and "e" (send mail when
+#          job terminates).  The default is "a" if not specified.
+#          You should also specify the email address to which the
+#          message should be send via the -M option.
+
+#PBS -m abe
+#PBS -M a57816@alunos.uminho.pt
+
+#          Specify the number of nodes requested and the
+#          number of processors per node. 
+
+#PBS -l nodes=1:ppn=48
+
+module purge
+module load gnu/4.9.0
+   
+echo "Done Loading Modules..."
+
+cd PCP_Project
+make clean
+make
+
+read -r node_info<$PBS_NODEFILE
+
+echo "Allocated computing node: $node_info"
+
+max_ppn=24
+sample_size=10
+max_matrix=8192
+
+for (( matrix_size=2048;matrix_size <= $max_matrix; matrix_size+=matrix_size  ))
+do 
+echo "Matrix Size: $matrix_size"
+echo "Running $sample_size * sequential code"
+for (( seq_num=1; seq_num <= $sample_size; ++seq_num ))
+do
+	./bin/pcp_tp1_seq $matrix_size $matrix_size $node_info
+done
+
+for (( i=2; i <= $max_ppn; i+=2 ))
+do
+	echo "Running $sample_size * ( $i threads parallel code)"
+	for (( sample_num=1; sample_num <= $sample_size; ++sample_num ))
+	do 
+		./bin/pcp_tp1_par $i $matrix_size $matrix_size $node_info
+done
+done
+done
+echo "Done..."
+
