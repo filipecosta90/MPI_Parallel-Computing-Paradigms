@@ -180,10 +180,37 @@ void calcula_histograma ( long long int total_pixels , int thread_count ){
 }
 
 void calcula_acumulado ( long long int total_pixels  ){
-  int valor_acumulado = 0;
-  for ( unsigned i = 0 ; i < HIST_SIZE ; i++ ){
-    valor_acumulado += histogram[i];
-    acumulado[i] = valor_acumulado * 255.0f / total_pixels ;
+
+  if (process_id == MASTER){
+
+    printf("\t\t\t##### MASTER calculatting accum!!\n");
+    /************ master process *************/
+    int valor_acumulado = 0;
+    for ( unsigned i = 0 ; i < HIST_SIZE ; i++ ){
+      valor_acumulado += histogram[i];
+      acumulado[i] = valor_acumulado * 255.0f / total_pixels ;
+    }
+
+    /************ MPI *************/
+
+    message_type = FROM_MASTER;
+    for (int dest_worker = 1 ; dest_worker <= number_workers; dest_worker++) {
+      printf("sending to process %d accum histogram \n", dest_worker );
+      //send the number of elements to read
+      //send the real histogram data
+      MPI_Send( &acumulado[0] , HIST_SIZE , MPI_FLOAT , dest_worker , message_type , MPI_COMM_WORLD);
+    }
+  }
+  else{
+    /************ worker processes *************/
+
+    printf("\t\t\t##### WORKER receiving accum!!\n");
+    message_type = FROM_MASTER;
+    int source = MASTER;
+
+    // reeive number of elements
+    MPI_Recv(&acumulado[0], HIST_SIZE , MPI_FLOAT , source , message_type , MPI_COMM_WORLD , &status);
+    printf("\t\tworker %d received accum \n", process_id );
   }
 }
 
@@ -252,10 +279,15 @@ int main (int argc, char *argv[]) {
 
     }
     calcula_histograma( total_pixels , number_threads );
+
+    MPI_Barrier(MPI_COMM_WORLD);
     if ( process_id == MASTER ){  
       mark_time(1);
       calcula_acumulado( total_pixels );
       mark_time(2);
+    }
+    else {
+      calcula_acumulado ( total_pixels );
     }
 
     MPI_Barrier(MPI_COMM_WORLD);
