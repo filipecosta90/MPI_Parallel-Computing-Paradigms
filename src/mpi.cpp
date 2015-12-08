@@ -29,6 +29,10 @@ long long int * initial_image, * final_image;
 long long unsigned initial_time, final_time, hist_time, accum_time, transform_time, temporary_time;
 long long unsigned hist_duration, accum_duration, transform_duration, total_duration;
 
+// the portion of the initial image corresponding to the worker
+long long int * worker_image; 
+long long int * final_worker_image; 
+
 MPI_Status status; 
 int process_id;
 int number_workers;
@@ -112,9 +116,9 @@ void calcula_histograma ( long long int total_pixels , int thread_count ){
       MPI_Send(&num_elements_to_send_rcv , 1 ,MPI_INT, dest_worker , message_type , MPI_COMM_WORLD);
       //send the real histogram data
       MPI_Send( &initial_image[offset] , num_elements_to_send_rcv , MPI_INT , dest_worker , message_type , MPI_COMM_WORLD);
-      
+
       offset = offset + num_elements_to_send_rcv;
-      
+
       //after first worker set the number of elements to send to the normal
       num_elements_to_send_rcv = elements_per_send_rcv;
     }
@@ -123,8 +127,18 @@ void calcula_histograma ( long long int total_pixels , int thread_count ){
 
     int local_histogram[number_workers][HIST_SIZE];
     for (int source_worker = 1; source_worker<=number_workers; source_worker++) {
-      //    MPI_Recv(&num_elements_to_send_rcv , 1 , MPI_INT , source_worker , message_type , MPI_COMM_WORLD , &status);
-      MPI_Recv(&local_histogram[source_worker-1][0] , HIST_SIZE , MPI_INT , source_worker , message_type , MPI_COMM_WORLD, &status);
+      MPI_Recv(&local_histogram[source_worker-1][0] , HIST_SIZE , MPI_INT , source_worker , message_type , MPI_COMM_WORLD, &status); 
+    }
+#pragma omp parallel num_threads( thread_count ) 
+    {
+#pragma omp for nowait schedule (static)
+      for ( int worker = 0; worker < number_workers; ++worker ){
+        //merge the received histogram to master histogram 
+        for ( unsigned pos_hist_local = 0; pos_hist_local < HIST_SIZE; ++pos_hist_local ){
+#pragma omp atomic 
+          histogram[pos_hist_local] += local_histogram[worker][pos_hist_local];
+        }
+      }
     }
   }
 
@@ -133,14 +147,15 @@ void calcula_histograma ( long long int total_pixels , int thread_count ){
 
     message_type = FROM_MASTER;
     int source = MASTER;
-    long long int * worker_image; 
-    int mpi_histogram[HIST_SIZE];
+
+    int mpi_worker_histogram[HIST_SIZE];
 
     // reeive number of elements
     MPI_Recv(&num_elements_to_send_rcv,1,MPI_INT, source , message_type , MPI_COMM_WORLD,&status);
     printf("\t\tworker %d going to handle  %d elements \n", process_id,  num_elements_to_send_rcv );
 
     worker_image = (long long int*) malloc(num_elements_to_send_rcv * sizeof ( long long int ) );
+    final_worker_image = (long long int*) malloc(num_elements_to_send_rcv * sizeof ( long long int ) );
     MPI_Recv(&worker_image[0], num_elements_to_send_rcv , MPI_INT , source , message_type , MPI_COMM_WORLD , &status);
 #pragma omp parallel num_threads( thread_count ) 
     {
@@ -151,16 +166,16 @@ void calcula_histograma ( long long int total_pixels , int thread_count ){
       for (long long int pixel_number = 0; pixel_number < num_elements_to_send_rcv ; ++pixel_number) { 
         local_histogram[thread_id][ worker_image[pixel_number] ]++;
       }
-      
+
       for ( unsigned pos_hist_local = 0; pos_hist_local < HIST_SIZE; ++pos_hist_local ){
 #pragma omp atomic 
-        mpi_histogram[pos_hist_local] += local_histogram[thread_id][pos_hist_local];
+        mpi_worker_histogram[pos_hist_local] += local_histogram[thread_id][pos_hist_local];
       }
     }
     printf("\t\t\t###%dcaculated local histogram\t ### going to send o papa!!\n", process_id);
     message_type = FROM_WORKER;
     //send the real histogram data
-    MPI_Send( &mpi_histogram , HIST_SIZE  , MPI_INT , MASTER , message_type , MPI_COMM_WORLD);
+    MPI_Send( &mpi_worker_histogram , HIST_SIZE  , MPI_INT , MASTER , message_type , MPI_COMM_WORLD);
   }
 }
 
@@ -174,16 +189,36 @@ void calcula_acumulado ( long long int total_pixels  ){
 
 void transforma_imagem( long long int total_pixels , int thread_count  ){
   if(process_id == MASTER){
+
+    /************ master process *************/
+
+    offset = 0;
+    num_elements_to_send_rcv = elements_per_send_rcv + extra_send_rcv;
+    message_type = FROM_WORKER;
+
+    int local_histogram[number_workers][HIST_SIZE];
+    for (int source_worker = 1; source_worker<=number_workers; source_worker++) {
+      MPI_Recv(&final_image[offset] , num_elements_to_send_rcv , MPI_INT , source_worker , message_type , MPI_COMM_WORLD, &status); 
+      offset += num_elements_to_send_rcv;
+      num_elements_to_send_rcv = elements_per_send_rcv;
+    }
+  }
+
+  /************ worker process *************/
+  else {
+    printf("worker %d in TRANSFORMA_IMAGEM \n", process_id );
+
 #pragma omp parallel num_threads( thread_count ) 
     {
 #pragma omp for nowait schedule (static)
-      for (long long int pixel_number = 0; pixel_number < total_pixels; ++pixel_number ) {
-        final_image[pixel_number] = (int )( acumulado[ initial_image[pixel_number]] );
+      for (long long int pixel_number = 0; pixel_number < num_elements_to_send_rcv; ++pixel_number ) {
+        final_worker_image[pixel_number] = (int )( acumulado[ worker_image[pixel_number] ] );
       }
-    } 
-  }
-  else {
-    printf("worker %d in TRANSFORMA_IMAGEM \n", process_id );
+    }
+    printf("\t\t\t###%dcaculated final image\t ### going to send o papa!!\n", process_id);
+    message_type = FROM_WORKER;
+    //send the portion of the final image
+    MPI_Send( &final_worker_image , num_elements_to_send_rcv  , MPI_INT , MASTER , message_type , MPI_COMM_WORLD);
   }
 }
 
