@@ -29,15 +29,15 @@
 #          Specify the number of nodes requested and the
 #          number of processors per node. 
 
-#PBS -l nodes=1:ppn=48
+#PBS -l nodes=2:ppn=10:r641
 
 module purge
 module load intel/2013.1.117
+module load intel/openmpi_eth/1.8.2
    
 echo "Done Loading Modules..."
 
-cd MPI_Parallel-Computing-Paradigms
-cd PCP_Project
+cd MPI_Parallel-Computing-Paradigms/bin
 
 read -r node_info<$PBS_NODEFILE
 
@@ -53,16 +53,7 @@ echo "Matrix Size: $matrix_size"
 echo "Running $sample_size * sequential code"
 for (( seq_num=1; seq_num <= $sample_size; ++seq_num ))
 do
-mpirun /bin/pcp_tp1_seq $matrix_size $matrix_size $node_info
-done
-
-for (( i=2; i <= $max_ppn; i+=2 ))
-do
-	echo "Running $sample_size * ( $i threads parallel code)"
-	for (( sample_num=1; sample_num <= $sample_size; ++sample_num ))
-	do 
-mpirun /bin/pcp_tp1_par $i $matrix_size $matrix_size $node_info
-done
+mpirun -np 4 pcp_tp2_mpi 10 $matrix_size $matrix_size
 done
 done
 echo "Done..."
