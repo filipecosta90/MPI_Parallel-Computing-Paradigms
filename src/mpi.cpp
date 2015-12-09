@@ -148,7 +148,7 @@ void calcula_histograma ( long long int total_pixels , int thread_count ){
     message_type = FROM_MASTER;
     int source = MASTER;
 
-    int mpi_worker_histogram[HIST_SIZE];
+    int * mpi_worker_histogram = new int[HIST_SIZE];
 
     // reeive number of elements
     MPI_Recv(&num_elements_to_send_rcv,1,MPI_INT, source , message_type , MPI_COMM_WORLD,&status);
@@ -161,7 +161,12 @@ void calcula_histograma ( long long int total_pixels , int thread_count ){
     {
 
       int thread_id = omp_get_thread_num();
-      int local_histogram[MAX_THREADS][HIST_SIZE];
+     int **local_histogram;
+     local_histogram = (int**) malloc(MAX_THREADS * sizeof ( int* ) );
+     for ( int thread_id = 0; thread_id < MAX_THREADS; ++thread_id ){
+        local_histogram[thread_id] = (int*) malloc ( HIST_SIZE * sizeof ( int ) );
+     }
+    // [MAX_THREADS][HIST_SIZE];
 #pragma omp for nowait schedule (static)
       for (long long int pixel_number = 0; pixel_number < num_elements_to_send_rcv ; ++pixel_number) { 
         local_histogram[thread_id][ worker_image[pixel_number] ]++;

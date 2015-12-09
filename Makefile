@@ -6,17 +6,15 @@
 
 SHELL = /bin/sh
 
-PAR_4 = par
+MPI = mpi
 PAR = par
 CXX = mpicc
 
-SEQ = par
 BIN = bin
-BIN_SEQ = pcp_tp1_seq
+BIN_MPI = pcp_tp2_mpi
 BIN_PAR = pcp_tp1_par
-BIN_PAR_4 = pcp_tp1_par_reduce
 
-CXXFLAGS   = -O3 -Wall -Wextra -std=c++11 -fopenmp
+CXXFLAGS   = -O3 -Wall -Wextra -std=c++11 -fopenmp -qopt-report=4 -qopt-report-phase ipo
 
 SRC_DIR = src
 BIN_DIR = bin
@@ -41,14 +39,11 @@ $(BUILD_DIR)/%.d: %.cpp
 $(BUILD_DIR)/%.o: %.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCLUDES) $< -o $@
 
-$(BIN_DIR)/$(BIN_SEQ): $(BUILD_DIR)/$(SEQ).o $(BUILD_DIR)/$(SEQ).d 
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ $(BUILD_DIR)/$(SEQ).o 
-
 $(BIN_DIR)/$(BIN_PAR): $(BUILD_DIR)/$(PAR).o $(BUILD_DIR)/$(PAR).d 
 	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ $(BUILD_DIR)/$(PAR).o 
 
-$(BIN_DIR)/$(BIN_PAR_4): $(BUILD_DIR)/$(PAR_4).o $(BUILD_DIR)/$(PAR_4).d 
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ $(BUILD_DIR)/$(PAR_4).o 
+$(BIN_DIR)/$(BIN_MPI): $(BUILD_DIR)/$(MPI).o $(BUILD_DIR)/$(MPI).d 
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ $(BUILD_DIR)/$(MPI).o 
 
 checkdirs:
 	@mkdir -p build 
@@ -56,7 +51,7 @@ checkdirs:
 	@mkdir -p timing
 	@mkdir -p bin
 
-all: checkdirs  $(BIN_DIR)/$(BIN_SEQ) $(BIN_DIR)/$(BIN_PAR) $(BIN_DIR)/$(BIN_PAR_4) 
+all: checkdirs $(BIN_DIR)/$(BIN_PAR) $(BIN_DIR)/$(BIN_MPI) 
 
 clean:
 	rm -f $(BUILD_DIR)/* $(BIN_DIR)/* 	
