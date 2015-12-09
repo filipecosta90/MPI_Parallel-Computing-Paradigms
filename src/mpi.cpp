@@ -19,6 +19,11 @@
 #define FROM_MASTER 1  /* setting a message type */ 
 #define FROM_WORKER 2  /* setting a message type */ 
 
+#define MPI_CHECK(call) \
+  if((call) != MPI_SUCCESS) { \
+    cerr << "MPI error calling \""#call"\"\n"; \
+    exit(-1); };
+
 using namespace std;
 
 // globals
@@ -29,6 +34,8 @@ long long int * initial_image, * final_image;
 long long unsigned initial_time, final_time, hist_time, accum_time, transform_time, temporary_time;
 long long unsigned hist_duration, accum_duration, transform_duration, total_duration;
 
+// node info
+char node_name[40];
 // the portion of the initial image corresponding to the worker
 long long int * worker_image; 
 long long int * final_worker_image; 
@@ -103,10 +110,7 @@ void calcula_histograma ( long long int total_pixels , int thread_count ){
 
     /************ master process *************/
 
-    elements_per_send_rcv = total_pixels / number_workers;
-    //the extra will go to first worker
-    extra_send_rcv = total_pixels % number_workers;
-    offset = 0;
+   offset = 0;
     message_type = FROM_MASTER;
     num_elements_to_send_rcv = elements_per_send_rcv + extra_send_rcv;
 
@@ -161,12 +165,12 @@ void calcula_histograma ( long long int total_pixels , int thread_count ){
     {
 
       int thread_id = omp_get_thread_num();
-     int **local_histogram;
-     local_histogram = (int**) malloc(MAX_THREADS * sizeof ( int* ) );
-     for ( int thread_id = 0; thread_id < MAX_THREADS; ++thread_id ){
+      int **local_histogram;
+      local_histogram = (int**) malloc(MAX_THREADS * sizeof ( int* ) );
+      for ( int thread_id = 0; thread_id < MAX_THREADS; ++thread_id ){
         local_histogram[thread_id] = (int*) malloc ( HIST_SIZE * sizeof ( int ) );
-     }
-    // [MAX_THREADS][HIST_SIZE];
+      }
+      // [MAX_THREADS][HIST_SIZE];
 #pragma omp for nowait schedule (static)
       for (long long int pixel_number = 0; pixel_number < num_elements_to_send_rcv ; ++pixel_number) { 
         local_histogram[thread_id][ worker_image[pixel_number] ]++;
@@ -244,7 +248,7 @@ void transforma_imagem( long long int total_pixels , int thread_count  ){
     {
 #pragma omp for nowait schedule (static)
       for (long long int pixel_number = 0; pixel_number < num_elements_to_send_rcv; ++pixel_number ) {
-        final_worker_image[pixel_number] = (int )( acumulado[ worker_image[pixel_number] ] );
+        final_worker_image[pixel_number] = ( int )( acumulado[ worker_image[pixel_number] ] );
       }
     }
     printf("\t\t\t###%dcaculated final image\t ### going to send o papa!!\n", process_id);
@@ -255,37 +259,47 @@ void transforma_imagem( long long int total_pixels , int thread_count  ){
 }
 
 int main (int argc, char *argv[]) {
-  /**** MPI ****/  
-  MPI_Init(&argc, &argv);
-  MPI_Comm_rank(MPI_COMM_WORLD, &process_id);
-  MPI_Comm_size(MPI_COMM_WORLD, &number_processes);
-  number_workers = number_processes-1; 
-
-  if ( argc > 3 ){
-
+   
     printf("\tprocess: %d initialized \n", process_id);
     int number_threads = atoi(argv[1]);
     int rows = atoi(argv[2]);
     int columns = atoi(argv[3]);
 
     long long int total_pixels = rows * columns;
-    char node_name[40];
+
+
+    if ( argc > 3 ){
     if (argc > 4 ){
       strcpy (node_name,argv[4]);
     }
+ 
     if (number_threads > MAX_THREADS ){
       number_threads = MAX_THREADS;
     }
+
+
+  /**** MPI ****/  
+  MPI_CHECK(  MPI_Init(&argc, &argv) );
+  MPI_CHECK(  MPI_Comm_rank(MPI_COMM_WORLD, &process_id) );
+  MPI_CHECK(  MPI_Comm_size(MPI_COMM_WORLD, &number_processes) );
+  number_workers = number_processes-1; 
+  elements_per_send_rcv = total_pixels / number_workers;
+  //the extra will go to first worker
+  extra_send_rcv = total_pixels % number_workers;
+
     if( process_id == MASTER ){
       fillMatrices(total_pixels);
       clearCache();
       printf("\tmatrix: %d*%d \n", rows, columns);
       start();
-
     }
+
+    /**** FIRST METHOD ****/
     calcula_histograma( total_pixels , number_threads );
 
+
     MPI_Barrier(MPI_COMM_WORLD);
+
     if ( process_id == MASTER ){  
       mark_time(1);
       calcula_acumulado( total_pixels );
@@ -297,6 +311,7 @@ int main (int argc, char *argv[]) {
 
     MPI_Barrier(MPI_COMM_WORLD);
 
+    /**** THIRD METHOD ****/
     transforma_imagem( total_pixels , number_threads );
     MPI_Barrier(MPI_COMM_WORLD);
     if ( process_id == MASTER){
@@ -305,7 +320,7 @@ int main (int argc, char *argv[]) {
       writeResults(number_threads , rows, columns, node_name );
     }
     printf("process: %d finalized \n", process_id);
-    MPI_Finalize();
+    MPI_CHECK( MPI_Finalize() );
     return 0;
   }
   else {
