@@ -109,7 +109,6 @@ void stop ( void ) {
 /************ master process *************/
 void calculate_histogram_master ( long long int total_pixels , int thread_count ){
 
-
   offset = 0;
   message_type = FROM_MASTER;
   num_elements_to_send_rcv = elements_per_send_rcv + extra_send_rcv;
@@ -145,7 +144,6 @@ void calculate_histogram_master ( long long int total_pixels , int thread_count 
     }
   }
 }
-
 
 /************ worker processes *************/
 void calculate_histogram_worker ( long long int total_pixels , int thread_count ){
@@ -191,7 +189,6 @@ void calculate_histogram_worker ( long long int total_pixels , int thread_count 
 
 /************ master process *************/
 void calculate_accum_master ( long long int total_pixels  ){
-  printf("\t\t\t##### MASTER calculatting accum!!\n");
   int valor_acumulado = 0;
   for ( unsigned i = 0 ; i < HIST_SIZE ; i++ ){
     valor_acumulado += histogram[i];
@@ -201,8 +198,6 @@ void calculate_accum_master ( long long int total_pixels  ){
   /************ MPI *************/
   message_type = FROM_MASTER;
   for (int dest_worker = 1 ; dest_worker <= number_workers; dest_worker++) {
-    printf("sending to process %d accum histogram \n", dest_worker );
-    //send the number of elements to read
     //send the real histogram data
     MPI_Send( &acumulado[0] , HIST_SIZE , MPI_FLOAT , dest_worker , message_type , MPI_COMM_WORLD);
   }
@@ -210,14 +205,11 @@ void calculate_accum_master ( long long int total_pixels  ){
 
 /************ worker processes *************/
 void calculate_accum_worker ( long long int total_pixels  ){
-
-  printf("\t\t\t##### WORKER receiving accum!!\n");
   message_type = FROM_MASTER;
   int source = MASTER;
 
-  // reeive number of elements
+  // receive number of elements
   MPI_Recv(&acumulado[0], HIST_SIZE , MPI_FLOAT , source , message_type , MPI_COMM_WORLD , &status);
-  printf("\t\tworker %d received accum \n", process_id );
 }
 
 /************ master process *************/
@@ -236,7 +228,6 @@ void transform_image_master( long long int total_pixels , int thread_count  ){
 
 /************ worker process *************/
 void transform_image_worker( long long int total_pixels , int thread_count  ){
-  printf("worker %d in TRANSFORMA_IMAGEM \n", process_id );
 #pragma omp parallel num_threads( thread_count ) 
   {
 #pragma omp for nowait schedule (static)
@@ -244,7 +235,6 @@ void transform_image_worker( long long int total_pixels , int thread_count  ){
       final_worker_image[pixel_number] = ( int )( acumulado[ worker_image[pixel_number] ] );
     }
   }
-  printf("\t\t\t###%dcaculated final image\t ### going to send o papa!!\n", process_id);
   message_type = FROM_WORKER;
   //send the portion of the final image
   MPI_Send( &final_worker_image , num_elements_to_send_rcv  , MPI_INT , MASTER , message_type , MPI_COMM_WORLD);
@@ -252,7 +242,7 @@ void transform_image_worker( long long int total_pixels , int thread_count  ){
 
 int main (int argc, char *argv[]) {
 
-  printf("\tprocess: %d initialized \n", process_id);
+
   int number_threads = atoi(argv[1]);
   int rows = atoi(argv[2]);
   int columns = atoi(argv[3]);
@@ -277,13 +267,14 @@ int main (int argc, char *argv[]) {
     //the extra will go to first worker
     extra_send_rcv = total_pixels % number_workers;
 
-    //initiaze accum and hist 
+  printf("\tProcess: %d initialized!\n", process_id);
+    
+  //initiaze accum and hist 
     init_accum_hist ();
 
     if( process_id == MASTER ){
       fillMatrices(total_pixels);
       clearCache();
-      printf("\tmatrix: %d*%d \n", rows, columns);
       start();
       /**** FIRST METHOD ****/
       calculate_histogram_master( total_pixels , number_threads );
@@ -311,8 +302,8 @@ int main (int argc, char *argv[]) {
       transform_image_worker( total_pixels , number_threads );
       MPI_Barrier(MPI_COMM_WORLD);
     }
-    printf("process: %d finalized \n", process_id);
     MPI_CHECK( MPI_Finalize() );
+    printf("Process: %d finalized!\n", process_id);
     return 0;
   }
   else {

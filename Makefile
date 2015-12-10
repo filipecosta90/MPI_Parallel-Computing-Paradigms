@@ -6,7 +6,7 @@
 
 SHELL = /bin/sh
 
-MPI = mpi_v2
+MPI = mpi_scatter
 PAR = par
 CXX = mpicc
 
