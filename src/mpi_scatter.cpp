@@ -55,11 +55,8 @@ int* master_partial_images;
 // mpi
 MPI_Status status; 
 int process_id;
-int number_workers;
 int number_processes; 
 int elements_per_worker;
-int offset;
-int message_type;
 
 // open mp
 int thread_count;
@@ -78,6 +75,17 @@ void init_memory (){
   memset ( worker_local_histogram , 0 , sizeof(int) * HIST_SIZE );
 
 }
+
+void free_memory (){
+  free( worker_local_histogram ); 
+  free( worker_initial_image );
+  free( worker_final_image );
+  if ( process_id == MASTER ){
+    free( initial_image );
+    free( final_image );
+  }
+}
+
 
 void fillMatrices ( long long int total_pixels  ) {
 
@@ -163,8 +171,7 @@ void calculate_accum ( long long int total_pixels  ){
       histogram_accumulated[i] = accumulated_value * 255.0f / total_pixels ;
     }
   }
-  message_type = FROM_MASTER;
-  MPI_Bcast( histogram_accumulated , HIST_SIZE, MPI_FLOAT, message_type, MPI_COMM_WORLD);
+  MPI_Bcast( histogram_accumulated , HIST_SIZE, MPI_FLOAT, MASTER , MPI_COMM_WORLD);
   MPI_Barrier(MPI_COMM_WORLD);
 }
 
@@ -203,8 +210,8 @@ int main (int argc, char *argv[]) {
 
     printf("\tProcess: %d initialized!\n", process_id);
 
-    //initiaze accum and hist 
-    init_memory ();
+    //initialize memory
+    init_memory();
 
     if( process_id == MASTER ){
       fillMatrices(total_pixels);
@@ -228,6 +235,8 @@ int main (int argc, char *argv[]) {
       stop();
       writeResults(number_threads , rows, columns, node_name );
     }
+    //free memory
+    free_memory();
     MPI_CHECK( MPI_Finalize() );
     printf("\tProcess: %d finalized!\n", process_id);
     return 0;
