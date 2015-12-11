@@ -42,15 +42,15 @@ timeval t;
 char node_name[40];
 
 // image matrixes
-int * worker_initial_image; 
-int * worker_final_image; 
-int * initial_image, * final_image;
+long long int * worker_initial_image; 
+long long int * worker_final_image; 
+long long int * initial_image, * final_image;
 
 // image histograms
 int histogram[HIST_SIZE];
 float histogram_accumulated[HIST_SIZE];
-int* master_histograms;
-int* master_partial_images;
+int** master_histograms;
+int** master_partial_images;
 // mpi
 MPI_Status status; 
 int process_id;
@@ -73,8 +73,8 @@ void init_accum_hist (){
 
 void fillMatrices ( long long int total_pixels  ) {
 
-  initial_image = (int*) malloc(total_pixels * sizeof ( int ) );
-  final_image = (int*) malloc(total_pixels * sizeof ( int ) );
+  initial_image = (long long int*) malloc(total_pixels * sizeof ( long long int ) );
+  final_image = (long long int*) malloc(total_pixels * sizeof ( long long int ) );
 
   for (long long int pixel_number = 0; pixel_number < total_pixels; ++pixel_number) {
     initial_image[pixel_number] = (((int) rand()) % ((int) 255));
@@ -124,35 +124,54 @@ void stop ( void ) {
 /************ master process *************/
 ///////////////////////////////////////////
 
-void calculate_histogram ( ) {
+void calculate_histogram ( int thread_count ) {
 
-  int * worker_local_histogram;
-  worker_local_histogram = (int*) malloc ( HIST_SIZE * sizeof (int));
-  memset ( worker_local_histogram , 0 , sizeof(int) * HIST_SIZE );
+  int * mpi_worker_histogram;
+  mpi_worker_histogram = (int*) malloc ( HIST_SIZE * sizeof (int*));
+  memset (mpi_worker_histogram , 0 , sizeof(int) * HIST_SIZE );
 
-  worker_initial_image = (int*) malloc(elements_per_worker * sizeof ( int ) );
+  if ( process_id == MASTER ){
+    master_histograms = (int**) malloc(number_processes * HIST_SIZE * sizeof ( int* ) );
+    for ( int p_id = 0; p_id < number_processes; ++p_id ){
+      master_histograms[p_id] = (int*) malloc ( HIST_SIZE * sizeof ( int ) );
+      memset (master_histograms[p_id] , 0 , sizeof(int) * HIST_SIZE );
+    }
+  }
+
+  message_type = FROM_MASTER;
+  worker_initial_image = (long long int*) malloc(elements_per_worker * sizeof ( long long int ) );
   MPI_Scatter ( initial_image, elements_per_worker , MPI_INT , worker_initial_image, elements_per_worker, MPI_INT, MASTER, MPI_COMM_WORLD );
+#pragma omp parallel num_threads( thread_count ) 
+  {
+    int thread_id = omp_get_thread_num();
+    int **local_histogram;
+    local_histogram = (int**) malloc(MAX_THREADS * sizeof ( int* ) );
+    for ( int thread_id = 0; thread_id < MAX_THREADS; ++thread_id ){
+      local_histogram[thread_id] = (int*) malloc ( HIST_SIZE * sizeof ( int ) );
+      memset (local_histogram[thread_id] , 0 , sizeof(int) * HIST_SIZE );
+    }
+#pragma omp for nowait schedule (static)
+    for (long long int pixel_number = 0; pixel_number < elements_per_worker ; ++pixel_number) { 
+      local_histogram[thread_id][ worker_initial_image[pixel_number] ]++;
+    }
 
-  for (long long int pixel_number = 0; pixel_number < elements_per_worker ; ++pixel_number) { 
-    worker_local_histogram[ worker_initial_image[pixel_number] ]++;
+    for ( unsigned pos_hist_local = 0; pos_hist_local < HIST_SIZE; ++pos_hist_local ){
+#pragma omp atomic 
+      mpi_worker_histogram[pos_hist_local] += local_histogram[thread_id][pos_hist_local];
+    }
+    free(local_histogram);
   }
 
-  if ( process_id == MASTER ){
-    master_histograms = (int*) malloc(number_processes * HIST_SIZE * sizeof ( int ) );
-  }
-  printf("going to gather\n");
+  free( worker_initial_image );
   // Gather all partial histograms down to the root process
-  int master_size = HIST_SIZE * number_processes;
-  MPI_Gather( worker_local_histogram , HIST_SIZE , MPI_INT , master_histograms , master_size , MPI_INT , MASTER , MPI_COMM_WORLD);
+    for ( unsigned i = 0 ; i < HIST_SIZE ; i++ ){
+   printf("%d ", mpi_worker_histogram[i] );
+    }
+    printf("\n");
+  MPI_Gather(&master_histograms, HIST_SIZE , MPI_INT , &mpi_worker_histogram , HIST_SIZE , MPI_INT , MASTER , MPI_COMM_WORLD);
+  free ( mpi_worker_histogram );
   MPI_Barrier(MPI_COMM_WORLD);
-  if ( process_id == MASTER ){
-  for (int pos_hist = 0; pos_hist < HIST_SIZE; ++pos_hist ){
-      for ( int p_num = 0; p_num < number_processes; ++p_num ){
-        histogram[pos_hist] += master_histograms[p_num*pos_hist];
-      }
-  }
-  printf("gathered and merged all histograms!\n");
-  }
+  printf("gathered all histograms!\n");
 }
 
 void calculate_accum ( long long int total_pixels  ){
@@ -161,16 +180,22 @@ void calculate_accum ( long long int total_pixels  ){
     for ( unsigned i = 0 ; i < HIST_SIZE ; i++ ){
       accumulated_value += histogram[i];
       histogram_accumulated[i] = accumulated_value * 255.0f / total_pixels ;
+   printf("%f ", histogram_accumulated[i] ); 
     }
+    printf("\n");
   }
   message_type = FROM_MASTER;
-  MPI_Bcast( histogram_accumulated , HIST_SIZE, MPI_FLOAT, message_type, MPI_COMM_WORLD);
+  MPI_Bcast( histogram_accumulated , HIST_SIZE, MPI_INT, message_type, MPI_COMM_WORLD);
   MPI_Barrier(MPI_COMM_WORLD);
   printf("BROADCASTED HISTOGRAM ACCUMULATED\nprocess:%d\n", process_id);
+  for( int pos_hist = 0; pos_hist < HIST_SIZE; ++ pos_hist ){
+    printf("%d ", histogram_accumulated[pos_hist]);
+  }
+  printf("\n");
 }
 
 void transform_image(  int thread_count  ){
-/*
+
   if ( process_id == MASTER ){
     master_partial_images = (int**) malloc(number_processes * elements_per_worker * sizeof ( int* ) );
     for ( int p_id = 0; p_id < number_processes; ++p_id ){
@@ -197,8 +222,8 @@ void transform_image(  int thread_count  ){
     free( master_partial_images[pro_id]);
   }
   if(process_id == MASTER){
-    free(master_partial_images);
-  }*/
+  free(master_partial_images);
+  }
   printf("gathered all partial final images!\n");
 }
 
@@ -235,7 +260,7 @@ int main (int argc, char *argv[]) {
       start();
     }
     /**** FIRST METHOD ****/
-    calculate_histogram ( );
+    calculate_histogram ( number_threads );
     if ( process_id == MASTER ){ 
       mark_time(1);
     }
