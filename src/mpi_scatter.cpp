@@ -127,7 +127,7 @@ void stop ( void ) {
 void calculate_histogram ( int thread_count ) {
 
   int * mpi_worker_histogram;
-  mpi_woker_histogram = (int*) malloc ( HIST_SIZE * sizeof (int*));
+  mpi_worker_histogram = (int*) malloc ( HIST_SIZE * sizeof (int*));
   memset (mpi_worker_histogram , 0 , sizeof(int) * HIST_SIZE );
 
   if ( process_id == MASTER ){
@@ -140,8 +140,8 @@ void calculate_histogram ( int thread_count ) {
 
   message_type = FROM_MASTER;
   worker_initial_image = (long long int*) malloc(elements_per_worker * sizeof ( long long int ) );
-  MPI_Scatter ( initial_image, elements_per_worker , MPI_INT , worker_initial_image, elements_per_worker, MPI_INT, message_type, MPI_COMM_WORLD );
-  #pragma omp parallel num_threads( thread_count ) 
+  MPI_Scatter ( initial_image, elements_per_worker , MPI_INT , worker_initial_image, elements_per_worker, MPI_INT, MASTER, MPI_COMM_WORLD );
+#pragma omp parallel num_threads( thread_count ) 
   {
     int thread_id = omp_get_thread_num();
     int **local_histogram;
@@ -150,23 +150,21 @@ void calculate_histogram ( int thread_count ) {
       local_histogram[thread_id] = (int*) malloc ( HIST_SIZE * sizeof ( int ) );
       memset (local_histogram[thread_id] , 0 , sizeof(int) * HIST_SIZE );
     }
-    #pragma omp for nowait schedule (static)
+#pragma omp for nowait schedule (static)
     for (long long int pixel_number = 0; pixel_number < elements_per_worker ; ++pixel_number) { 
       local_histogram[thread_id][ worker_initial_image[pixel_number] ]++;
     }
 
     for ( unsigned pos_hist_local = 0; pos_hist_local < HIST_SIZE; ++pos_hist_local ){
-      #pragma omp atomic 
+#pragma omp atomic 
       mpi_worker_histogram[pos_hist_local] += local_histogram[thread_id][pos_hist_local];
     }
+    free(local_histogram);
   }
-  for(int thread_id = 0; thread_id < MAX_THREADS; ++thread_id ){
-    free(local_histogram[thread_id]);
-  }
-  free( local_histogram );
+
   free( worker_initial_image );
   // Gather all partial histograms down to the root process
-  MPI_Gather(&master_histograms, HIST_SIZE , MPI_INT , &mpi_worker_histogram , HIST_SIZE , MPI_INT , FROM_MASTER , MPI_COMM_WORLD);
+  MPI_Gather(&master_histograms, HIST_SIZE , MPI_INT , &mpi_worker_histogram , HIST_SIZE , MPI_INT , MASTER , MPI_COMM_WORLD);
   free ( mpi_worker_histogram );
   MPI_Barrier(MPI_COMM_WORLD);
   printf("gathered all histograms!\n");
