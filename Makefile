@@ -14,7 +14,7 @@ BIN = bin
 BIN_MPI = pcp_tp2_mpi
 BIN_PAR = pcp_tp1_par
 
-CXXFLAGS   = -O3 -Wall -Wextra -std=c++11 -fopenmp -qopt-report=4 -qopt-report-phase ipo
+CXXFLAGS   = -O3 -Wall -Wextra -std=c++11 -fopenmp -qopt-report=4 -qopt-report-phase ipo -g
 
 SRC_DIR = src
 BIN_DIR = bin
