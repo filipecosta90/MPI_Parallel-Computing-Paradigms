@@ -34,9 +34,14 @@
 using namespace std;
 
 // time control
-long long unsigned initial_time, final_time, hist_time, accum_time, transform_time, temporary_time;
+long long unsigned initial_time, final_time;
+long long unsigned hist_call_time, 
+long lolong long accum_call_time, transform_call_time, temporary_time;
 long long unsigned hist_duration, accum_duration, transform_duration, total_duration;
 timeval t;
+
+// mpi time control 
+long long unsigned hist_initial_work_time;
 
 // node info
 char node_name[40];
