@@ -38,6 +38,7 @@ using namespace std;
 double initial_time, final_time, temporary_time_start, temporary_time_stop, total_duration;
 double hist_call_time, hist_exit_time, hist_duration, hist_compute_duration, hist_transmit_duration, hist_iddle_duration; 
 double accum_call_time, accum_exit_time, accum_duration, accum_compute_duration, accum_transmit_duration, accum_iddle_duration;
+double transform_call_time, transform_exit_time, transform_duration, transform_compute_duration, tranform_transmit_duration, transform_iddle_duration;
 
 // node info
 char node_name[40];
@@ -105,7 +106,7 @@ void clearCache(){
 
 void writeResults (int number_threads , int rows, int columns ,  char * node_name ) {
   ofstream file ("timing/timings.dat" , ios::out | ios::app );
-//  file << number_threads << " , " << hist_duration << " , " << accum_duration << " , "<< transform_duration << " , " << total_duration << " , " << rows <<" x "<<  columns  <<" , " << node_name << endl;
+  file << number_processes << " , " << number_threads << " , " << hist_duration << " , " << accum_duration << " , "<< transform_duration << " , " << total_duration << " , " << rows <<" x "<<  columns  <<" , " << node_name << endl;
   file.close();
 }
 void start_time ( void ){
@@ -114,9 +115,9 @@ void start_time ( void ){
 
 void stop_time ( void ) {
   final_time = MPI_Wtime();
- // hist_duration = hist_time - initial_time;
- // accum_duration = accum_time - hist_time;
- // transform_duration = transform_time - accum_time;
+  hist_duration = hist_call_time - initial_exit_time;
+  accum_duration = accum_call_time - hist_exit_time;
+  transform_duration = transform_call_time - accum_exit_time;
   total_duration =  final_time - initial_time;
 }
 
@@ -125,7 +126,7 @@ void stop_time ( void ) {
 ///////////////////////////////////////////
 
 void calculate_histogram ( ) {
-
+  hist_call_time = MPI_Wtime();
   MPI_Scatter ( initial_image, elements_per_worker , MPI_INT , worker_initial_image, elements_per_worker, MPI_INT, MASTER, MPI_COMM_WORLD );
 
   for (long long int pixel_number = 0; pixel_number < elements_per_worker ; ++pixel_number) { 
@@ -145,9 +146,11 @@ void calculate_histogram ( ) {
       }
     }
   }
+  hist_exit_time = MPI_Wtime();
 }
 
 void calculate_accum ( long long int total_pixels  ){
+  accum_call_time = MPI_Wtime();
   if ( process_id == MASTER ){
     int accumulated_value = 0;
     for ( unsigned i = 0 ; i < HIST_SIZE ; i++ ){
@@ -156,16 +159,18 @@ void calculate_accum ( long long int total_pixels  ){
     }
   }
   MPI_Bcast( histogram_accumulated , HIST_SIZE, MPI_FLOAT, MASTER , MPI_COMM_WORLD);
+  accum_exit_time = MPI_Wtime();
 }
 
 void transform_image( ){
-
+  transform_call_time = MPI_Wtime();
   for (long long int pixel_number = 0; pixel_number < elements_per_worker; ++pixel_number ) {
     worker_final_image[pixel_number] = ( int )( histogram_accumulated [ worker_initial_image[pixel_number] ] );
   }
 
   // Gather all partial images down to the root process
   MPI_Gather( worker_final_image , elements_per_worker , MPI_INT , final_image , elements_per_worker , MPI_INT , MASTER , MPI_COMM_WORLD);
+  transform_exit_time = MPI_Wtime();
 }
 
 int main (int argc, char *argv[]) {
