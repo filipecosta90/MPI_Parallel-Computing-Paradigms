@@ -42,6 +42,7 @@ double transform_call_time, transform_exit_time, transform_duration, transform_c
 
 // node info
 char node_name[40];
+char mapped_by[40];
 
 // image matrixes
 int * worker_initial_image; 
@@ -104,9 +105,9 @@ void clearCache(){
     clearcache[i] = i;
 }
 
-void writeResults (int number_threads , int rows, int columns ,  char * node_name ) {
+void writeResults (int matrix_side , int number_nodes,  char* mapped_by ,  char * node_name ) {
   ofstream file ("timing/timings.dat" , ios::out | ios::app );
-  file << number_processes << " , " << number_threads << " , " << hist_duration << " , " << accum_duration << " , "<< transform_duration << " , " << total_duration << " , " << rows <<" x "<<  columns  <<" , " << node_name << endl;
+  file << number_nodes << " , " << number_processes <<" , "<< mapped_by  << " , " << matrix_side << " x " << matrix_side << " , " << hist_duration << " , " << accum_duration << " , "<< transform_duration << " , " << total_duration <<" , " << node_name << endl;
   file.close();
 }
 void start_time ( void ){
@@ -115,9 +116,9 @@ void start_time ( void ){
 
 void stop_time ( void ) {
   final_time = MPI_Wtime();
-  hist_duration = hist_call_time - initial_exit_time;
-  accum_duration = accum_call_time - hist_exit_time;
-  transform_duration = transform_call_time - accum_exit_time;
+  hist_duration = hist_exit_time - hist_call_time;
+  accum_duration = accum_exit_time - hist_call_time;
+  transform_duration = transform_exit_time - accum_call_time;
   total_duration =  final_time - initial_time;
 }
 
@@ -175,27 +176,22 @@ void transform_image( ){
 
 int main (int argc, char *argv[]) {
 
-  int rows = atoi(argv[2]);
-  int columns = atoi(argv[3]);
-  int total_pixels = rows * columns;
-  int number_threads = atoi(argv[1]);
+  int matrix_side = atoi(argv[1]);
+	int number_nodes = atoi(argv[3]);
+  int total_pixels = matrix_side * matrix_side;
 
-  if ( argc > 3 ){
-    if (argc > 4 ){
-      strcpy (node_name,argv[4]);
+  if ( argc >=3 ){
+    if (argc >= 5 ){
+      strcpy (mapped_by,argv[4]);
+      strcpy (node_name,argv[5]);
     }
 
-    if (number_threads > MAX_THREADS ){
-      number_threads = MAX_THREADS;
-    }
 
     /**** MPI ****/  
     MPI_CHECK(  MPI_Init(&argc, &argv) );
     MPI_CHECK(  MPI_Comm_rank(MPI_COMM_WORLD, &process_id) );
     MPI_CHECK(  MPI_Comm_size(MPI_COMM_WORLD, &number_processes) );
     elements_per_worker = total_pixels / number_processes;
-
-    printf("\tProcess: %d initialized!\n", process_id);
 
     //initialize memory
     init_memory();
@@ -212,10 +208,12 @@ int main (int argc, char *argv[]) {
     /**** THIRD METHOD ****/
     transform_image( );
     stop_time();
+    if( process_id == MASTER ){
+	writeResults( matrix_side, number_nodes,  mapped_by, node_name );
+	}
     //free memory
     free_memory();
     MPI_CHECK( MPI_Finalize() );
-    printf("\tProcess: %d finalized!\n", process_id);
     return 0;
   }
   else {

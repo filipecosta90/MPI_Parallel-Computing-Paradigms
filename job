@@ -9,8 +9,8 @@
 #          PBS directives must come first; any directives
 #          after the first executable statement are ignored.
 
-#PBS -N pcp_tp2
-#PBS -l walltime=00:30:00
+#PBS -N pcp_tp2_2NODES
+#PBS -l walltime=00:10:00
 #PBS -q mei
 
 #          PBS can send informative email messages to you about the
@@ -29,13 +29,13 @@
 #          Specify the number of nodes requested and the
 #          number of processors per node. 
 
-#PBS -l nodes=2:ppn=10:r641
+#PBS -l nodes=2:ppn=16:r641
 
 module purge
 module load intel/2013.1.117
 module load intel/openmpi_eth/1.8.2
    
-echo "Done Loading Modules..."
+echo "Using OpenMpi Eth Module..."
 
 cd MPI_Parallel-Computing-Paradigms/bin
 
@@ -43,18 +43,24 @@ read -r node_info<$PBS_NODEFILE
 
 echo "Allocated computing node: $node_info"
 
-max_ppn=24
-sample_size=10
+max_nodes=2
+max_ppn=16
+sample_size=5
 max_matrix=8192
 
+echo "Mapping by core"
 for (( matrix_size=2048;matrix_size <= $max_matrix; matrix_size+=matrix_size  ))
 do 
 echo "Matrix Size: $matrix_size"
-echo "Running $sample_size * sequential code"
+for ( ppn = 1; ppn <= max_ppn; ++ppn ) 
+do
+echo "Running $sample_size * ppn: $ppn nodes: $nodes"
 for (( seq_num=1; seq_num <= $sample_size; ++seq_num ))
 do
-mpirun -np 4 pcp_tp2_mpi 10 $matrix_size $matrix_size
+mpirun -np $ppn map-by core --report-bindings pcp_tp2_mpi $matrix_side $ppn 2 "map-by-core" $node_info
 done
 done
+done
+
 echo "Done..."
 
