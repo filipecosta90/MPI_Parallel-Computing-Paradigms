@@ -38,7 +38,6 @@ using namespace std;
 double initial_time, final_time, temporary_time_start, temporary_time_stop, total_duration;
 double hist_call_time, hist_exit_time, hist_duration, hist_compute_duration, hist_transmit_duration, hist_iddle_duration; 
 double accum_call_time, accum_exit_time, accum_duration, accum_compute_duration, accum_transmit_duration, accum_iddle_duration;
-dobule transform_call_time, transform_exit_time, transform_duration, transform_compute_duration, accum_transmit_duration, accum_iddle_duration;
 
 // node info
 char node_name[40];
@@ -106,7 +105,7 @@ void clearCache(){
 
 void writeResults (int number_threads , int rows, int columns ,  char * node_name ) {
   ofstream file ("timing/timings.dat" , ios::out | ios::app );
-  file << number_threads << " , " << hist_duration << " , " << accum_duration << " , "<< transform_duration << " , " << total_duration << " , " << rows <<" x "<<  columns  <<" , " << node_name << endl;
+//  file << number_threads << " , " << hist_duration << " , " << accum_duration << " , "<< transform_duration << " , " << total_duration << " , " << rows <<" x "<<  columns  <<" , " << node_name << endl;
   file.close();
 }
 void start_time ( void ){
@@ -115,9 +114,9 @@ void start_time ( void ){
 
 void stop_time ( void ) {
   final_time = MPI_Wtime();
-  hist_duration = hist_time - initial_time;
-  accum_duration = accum_time - hist_time;
-  transform_duration = transform_time - accum_time;
+ // hist_duration = hist_time - initial_time;
+ // accum_duration = accum_time - hist_time;
+ // transform_duration = transform_time - accum_time;
   total_duration =  final_time - initial_time;
 }
 

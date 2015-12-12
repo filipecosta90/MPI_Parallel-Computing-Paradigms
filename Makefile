@@ -14,8 +14,8 @@ BIN = bin
 BIN_MPI = pcp_tp2_mpi
 BIN_PAR = pcp_tp1_par
 
-CXXFLAGS   = -O3 -Wall -Wextra -std=c++11 -fopenmp -qopt-report=4 -qopt-report-phase ipo -g
-
+CXXFLAGS   = -O3 -Wall -Wextra -std=c++11 -fopenmp -g
+LIBS = -L/share/apps/mpiP-3.4.1/ -lmpiP -lbfd -liberty -lunwind -lm
 SRC_DIR = src
 BIN_DIR = bin
 BUILD_DIR = build
@@ -40,10 +40,10 @@ $(BUILD_DIR)/%.o: %.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCLUDES) $< -o $@
 
 $(BIN_DIR)/$(BIN_PAR): $(BUILD_DIR)/$(PAR).o $(BUILD_DIR)/$(PAR).d 
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ $(BUILD_DIR)/$(PAR).o 
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ $(BUILD_DIR)/$(PAR).o $(LIBS)
 
 $(BIN_DIR)/$(BIN_MPI): $(BUILD_DIR)/$(MPI).o $(BUILD_DIR)/$(MPI).d 
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ $(BUILD_DIR)/$(MPI).o 
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ $(BUILD_DIR)/$(MPI).o $(LIBS)
 
 checkdirs:
 	@mkdir -p build 
