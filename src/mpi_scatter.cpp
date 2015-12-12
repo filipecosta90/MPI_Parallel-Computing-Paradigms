@@ -11,7 +11,6 @@
 #include <fstream>
 #include <string.h>
 
-#include <sys/time.h>
 #include "mpi.h"
 #include <omp.h>
 
@@ -23,25 +22,23 @@
 
 //MPI definitions
 #define MASTER 0       /* id of the first process */ 
-#define FROM_MASTER 1  /* setting a message type */ 
-#define FROM_WORKER 2  /* setting a message type */ 
 
 #define MPI_CHECK(call) \
   if((call) != MPI_SUCCESS) { \
     cerr << "MPI error calling \""#call"\"\n"; \
     exit(-1); };
 
+#define TIMER_HIST 1;
+#define TIMER_ACCU 2;
+#define TIMER_TRAN 3;
+
 using namespace std;
 
 // time control
-long long unsigned initial_time, final_time;
-long long unsigned hist_call_time, 
-long lolong long accum_call_time, transform_call_time, temporary_time;
-long long unsigned hist_duration, accum_duration, transform_duration, total_duration;
-timeval t;
-
-// mpi time control 
-long long unsigned hist_initial_work_time;
+double initial_time, final_time, temporary_time_start, temporary_time_stop, total_duration;
+double hist_call_time, hist_exit_time, hist_duration, hist_compute_duration, hist_transmit_duration, hist_iddle_duration; 
+double accum_call_time, accum_exit_time, accum_duration, accum_compute_duration, accum_transmit_duration, accum_iddle_duration;
+dobule transform_call_time, transform_exit_time, transform_duration, transform_compute_duration, accum_transmit_duration, accum_iddle_duration;
 
 // node info
 char node_name[40];
@@ -91,7 +88,6 @@ void free_memory (){
   }
 }
 
-
 void fillMatrices ( long long int total_pixels  ) {
 
   initial_image = (int*) malloc(total_pixels * sizeof ( int ) );
@@ -113,28 +109,12 @@ void writeResults (int number_threads , int rows, int columns ,  char * node_nam
   file << number_threads << " , " << hist_duration << " , " << accum_duration << " , "<< transform_duration << " , " << total_duration << " , " << rows <<" x "<<  columns  <<" , " << node_name << endl;
   file.close();
 }
-
-void start (void) {
-  gettimeofday(&t, NULL);
-  initial_time = t.tv_sec * TIME_RESOLUTION + t.tv_usec;
+void start_time ( void ){
+  initial_time = MPI_Wtime();
 }
 
-void mark_time ( int break_num ) {
-  gettimeofday(&t, NULL);
-  temporary_time = t.tv_sec * TIME_RESOLUTION + t.tv_usec;
-  if ( break_num == 1 ){
-    hist_time = temporary_time;
-  } else if ( break_num == 2 ){
-    accum_time = temporary_time;
-  }
-  else if ( break_num == 3 ){
-    transform_time = temporary_time;
-  }
-}
-
-void stop ( void ) {
-  gettimeofday(&t, NULL);
-  final_time = t.tv_sec * TIME_RESOLUTION + t.tv_usec;
+void stop_time ( void ) {
+  final_time = MPI_Wtime();
   hist_duration = hist_time - initial_time;
   accum_duration = accum_time - hist_time;
   transform_duration = transform_time - accum_time;
@@ -177,7 +157,6 @@ void calculate_accum ( long long int total_pixels  ){
     }
   }
   MPI_Bcast( histogram_accumulated , HIST_SIZE, MPI_FLOAT, MASTER , MPI_COMM_WORLD);
-  MPI_Barrier(MPI_COMM_WORLD);
 }
 
 void transform_image( ){
@@ -188,7 +167,6 @@ void transform_image( ){
 
   // Gather all partial images down to the root process
   MPI_Gather( worker_final_image , elements_per_worker , MPI_INT , final_image , elements_per_worker , MPI_INT , MASTER , MPI_COMM_WORLD);
-  MPI_Barrier(MPI_COMM_WORLD);
 }
 
 int main (int argc, char *argv[]) {
@@ -221,25 +199,15 @@ int main (int argc, char *argv[]) {
     if( process_id == MASTER ){
       fillMatrices(total_pixels);
       clearCache();
-      start();
     }
+    start_time();
     /**** FIRST METHOD ****/
     calculate_histogram ( );
-    if ( process_id == MASTER ){ 
-      mark_time(1);
-    }
     /**** SECOND METHOD ****/
     calculate_accum ( total_pixels );
-    if ( process_id == MASTER ){
-      mark_time(2);
-    }
     /**** THIRD METHOD ****/
     transform_image( );
-    if ( process_id == MASTER ){
-      mark_time(3);
-      stop();
-      writeResults(number_threads , rows, columns, node_name );
-    }
+    stop_time();
     //free memory
     free_memory();
     MPI_CHECK( MPI_Finalize() );
