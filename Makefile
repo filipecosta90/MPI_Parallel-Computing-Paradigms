@@ -6,17 +6,16 @@
 
 SHELL = /bin/sh
 
-MPI = mpi_scatter
-PAR = par
-CXX = mpicc
+MPI = mpi_reduce
+MPICXX = mpic++
+CXX = mpic++
 
 BIN = bin
 BIN_MPI = pcp_tp2_mpi
-BIN_PAR = pcp_tp1_par
 
-CXXFLAGS   = -O3 -Wall -Wextra -std=c++11 -fopenmp -g
-LIBS =  #-L/share/apps/mpiP-gcc4.9-openmpi-1.6.3/ -lmpiP -lbfd -liberty -lunwind -lm
-#S-lbfd
+CXXFLAGS   = -O3 -Wall -Wextra -std=c++11 -fopenmp 
+LIBS = -L/share/apps/mpiP-gcc4.9-openmpi-1.6.3/ -lmpiP -lbfd -liberty -lunwind -lm
+
 SRC_DIR = src
 BIN_DIR = bin
 BUILD_DIR = build
@@ -40,11 +39,8 @@ $(BUILD_DIR)/%.d: %.cpp
 $(BUILD_DIR)/%.o: %.cpp
 	$(CXX) -c $(CXXFLAGS) $(INCLUDES) $< -o $@
 
-$(BIN_DIR)/$(BIN_PAR): $(BUILD_DIR)/$(PAR).o $(BUILD_DIR)/$(PAR).d 
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ $(BUILD_DIR)/$(PAR).o $(LIBS)
-
 $(BIN_DIR)/$(BIN_MPI): $(BUILD_DIR)/$(MPI).o $(BUILD_DIR)/$(MPI).d 
-	$(CXX) $(CXXFLAGS) $(INCLUDES) -o $@ $(BUILD_DIR)/$(MPI).o $(LIBS)
+	$(MPICXX) $(CXXFLAGS) $(INCLUDES) -o $@ $(BUILD_DIR)/$(MPI).o $(LIBS)
 
 checkdirs:
 	@mkdir -p build 
@@ -52,7 +48,7 @@ checkdirs:
 	@mkdir -p timing
 	@mkdir -p bin
 
-all: checkdirs $(BIN_DIR)/$(BIN_PAR) $(BIN_DIR)/$(BIN_MPI) 
+all: checkdirs $(BIN_DIR)/$(BIN_MPI) 
 
 clean:
 	rm -f $(BUILD_DIR)/* $(BIN_DIR)/* 	

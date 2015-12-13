@@ -117,8 +117,8 @@ void start_time ( void ){
 void stop_time ( void ) {
   final_time = MPI_Wtime();
   hist_duration = hist_exit_time - hist_call_time;
-  accum_duration = accum_exit_time - hist_call_time;
-  transform_duration = transform_exit_time - accum_call_time;
+  accum_duration = accum_exit_time - accum_call_time;
+  transform_duration = transform_exit_time - transform_call_time;
   total_duration =  final_time - initial_time;
 }
 

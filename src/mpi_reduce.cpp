@@ -117,8 +117,8 @@ void start_time ( void ){
 void stop_time ( void ) {
   final_time = MPI_Wtime();
   hist_duration = hist_exit_time - hist_call_time;
-  accum_duration = accum_exit_time - hist_call_time;
-  transform_duration = transform_exit_time - accum_call_time;
+  accum_duration = accum_exit_time - accum_call_time;
+  transform_duration = transform_exit_time - transform_call_time;
   total_duration =  final_time - initial_time;
 }
 
@@ -136,8 +136,6 @@ void calculate_histogram ( ) {
 
   // Reduce all partial histograms down to the root process
 MPI_Reduce(worker_local_histogram, histogram, HIST_SIZE , MPI_INT, MPI_SUM, MASTER , MPI_COMM_WORLD);
-  MPI_Gather( worker_local_histogram , HIST_SIZE , MPI_INT , master_histograms , HIST_SIZE , MPI_INT , MASTER , MPI_COMM_WORLD);
-  MPI_Barrier(MPI_COMM_WORLD); 
   hist_exit_time = MPI_Wtime();
 }
 

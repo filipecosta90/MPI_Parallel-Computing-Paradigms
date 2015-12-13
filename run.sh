@@ -1,2 +1,2 @@
 #!/bin/sh#
-mpirun -np 4 bin/pcp_tp2_mpi 4 128 128
+mpirun -np 1 bin/pcp_tp2_mpi 8192 1 1 
