@@ -14,7 +14,7 @@ BIN = bin
 BIN_MPI = pcp_tp2_mpi
 
 CXXFLAGS   = -O3 -Wall -Wextra -std=c++11 -fopenmp 
-LIBS = -L/share/apps/mpiP-gcc4.9-openmpi-1.6.3/ -lmpiP -lbfd -liberty -lunwind -lm
+LIBS = -L/share/apps/mpiP-3.4.1/ -lmpiP -lbfd -liberty -lunwind -lm
 
 SRC_DIR = src
 BIN_DIR = bin
@@ -34,10 +34,10 @@ vpath %.cpp $(SRC_DIR)
 
 
 $(BUILD_DIR)/%.d: %.cpp
-	$(CXX) -M $(CXXFLAGS) $(INCLUDES) $< -o $@
+	$(CXX) -M $(CXXFLAGS) $(INCLUDES) $< -o $@ $(LIBS)
 
 $(BUILD_DIR)/%.o: %.cpp
-	$(CXX) -c $(CXXFLAGS) $(INCLUDES) $< -o $@
+	$(CXX) -c $(CXXFLAGS) $(INCLUDES) $< -o $@ $(LIBS)
 
 $(BIN_DIR)/$(BIN_MPI): $(BUILD_DIR)/$(MPI).o $(BUILD_DIR)/$(MPI).d 
 	$(MPICXX) $(CXXFLAGS) $(INCLUDES) -o $@ $(BUILD_DIR)/$(MPI).o $(LIBS)

@@ -1,2 +1,2 @@
 #!/bin/sh#
-mpirun -np 1 bin/pcp_tp2_mpi 8192 1 1 
+mpiexec -n 1 -mca btl self,sm,tcp bin/pcp_tp2_mpi 8192 1 1 

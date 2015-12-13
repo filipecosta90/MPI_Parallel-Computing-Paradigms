@@ -191,8 +191,10 @@ int main (int argc, char *argv[]) {
     }
     start_time();
     /**** FIRST METHOD ****/
-    calculate_histogram ( );
+	printf("first method\n");   
+ calculate_histogram ( );
     /**** SECOND METHOD ****/
+printf("second method\n");
     calculate_accum ( total_pixels );
     /**** THIRD METHOD ****/
     transform_image( );
