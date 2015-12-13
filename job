@@ -33,7 +33,8 @@
 
 module purge
 module load intel/2013.1.117
-module load intel/openmpi_eth/1.8.2
+module load intel/mpich2_eth/1.5
+module load intel/openmpi_eth/1.6.3
    
 echo "Using OpenMpi Eth Module..."
 
@@ -45,19 +46,19 @@ echo "Allocated computing node: $node_info"
 
 max_nodes=2
 max_ppn=16
-sample_size=5
-max_matrix=8192
+sample_size=1
+max_matrix=2048
 
 echo "Mapping by core"
 for (( matrix_size=2048;matrix_size <= $max_matrix; matrix_size+=matrix_size  ))
 do 
 echo "Matrix Size: $matrix_size"
-for ( ppn = 1; ppn <= max_ppn; ++ppn ) 
+for (( ppn = 1; ppn <= max_ppn; ++ppn )) 
 do
 echo "Running $sample_size * ppn: $ppn nodes: $nodes"
 for (( seq_num=1; seq_num <= $sample_size; ++seq_num ))
 do
-mpirun -np $ppn map-by core --report-bindings pcp_tp2_mpi $matrix_side $ppn 2 "map-by-core" $node_info
+mpirun -np $ppn --report-bindings pcp_tp2_mpi $matrix_side $ppn 2 "map-by-core" $node_info
 done
 done
 done

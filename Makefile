@@ -15,7 +15,8 @@ BIN_MPI = pcp_tp2_mpi
 BIN_PAR = pcp_tp1_par
 
 CXXFLAGS   = -O3 -Wall -Wextra -std=c++11 -fopenmp -g
-LIBS = -L/share/apps/mpiP-3.4.1/ -lmpiP -lbfd -liberty -lunwind -lm
+LIBS =  #-L/share/apps/mpiP-gcc4.9-openmpi-1.6.3/ -lmpiP -lbfd -liberty -lunwind -lm
+#S-lbfd
 SRC_DIR = src
 BIN_DIR = bin
 BUILD_DIR = build
