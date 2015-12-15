@@ -53,11 +53,9 @@ do
 echo "Running $sample_size * ppn: $ppn nodes"
 for (( seq_num=1; seq_num <= $sample_size; ++seq_num ))
 do
-mpirun -np $ppn --map-by core -mca btl self,sm,tcp --report-bindings bin/pcp_tp2_mpi $matrix_size "--map-by core ETH" 
+mpirun -np $ppn --map-by core -mca btl self,sm,tcp --report-bindings bin/pcp_tp2_mpi_gather $matrix_size "--map-by core ETH Gather"
 done
 done
 done
-
-mv pcp_tp2_mpi_* eth_results/
 echo "Done..."
 
