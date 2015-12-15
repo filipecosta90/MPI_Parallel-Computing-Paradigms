@@ -167,8 +167,11 @@ int main (int argc, char *argv[]) {
   int matrix_side = atoi(argv[1]);
   int total_pixels = matrix_side * matrix_side;
   if ( argc >=2 ){
-    if (argc >= 4 ){
+    if (argc >= 3 ){
       strcpy (mapped_by,argv[2]);
+    }
+if (argc >= 4 ){
+      strcpy (node_name,argv[3]);
     }
     /**** MPI ****/  
     MPI_CHECK(  MPI_Init(&argc, &argv) );
