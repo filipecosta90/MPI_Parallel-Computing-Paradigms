@@ -105,9 +105,9 @@ void clearCache(){
     clearcache[i] = i;
 }
 
-void writeResults (int matrix_side , int number_nodes,  char* mapped_by ,  char * node_name ) {
-  ofstream file ("timing/timings.dat" , ios::out | ios::app );
-  file << number_nodes << " , " << number_processes <<" , "<< mapped_by  << " , " << matrix_side << " x " << matrix_side << " , " << hist_duration << " , " << accum_duration << " , "<< transform_duration << " , " << total_duration <<" , " << node_name << endl;
+void writeResults (int matrix_side , char* mapped_by ,  char * node_name ) {
+  ofstream file ("timing/timings.csv" , ios::out | ios::app );
+  file << number_processes <<" , "<< mapped_by  << " , " << matrix_side << " x " << matrix_side << " , " << hist_duration << " , " << accum_duration << " , "<< transform_duration << " , " << total_duration <<" , " << node_name << endl;
   file.close();
 }
 void start_time ( void ){
@@ -135,7 +135,7 @@ void calculate_histogram ( ) {
   }
 
   // Reduce all partial histograms down to the root process
-MPI_Reduce(worker_local_histogram, histogram, HIST_SIZE , MPI_INT, MPI_SUM, MASTER , MPI_COMM_WORLD);
+  MPI_Reduce(worker_local_histogram, histogram, HIST_SIZE , MPI_INT, MPI_SUM, MASTER , MPI_COMM_WORLD);
   hist_exit_time = MPI_Wtime();
 }
 
@@ -164,25 +164,17 @@ void transform_image( ){
 }
 
 int main (int argc, char *argv[]) {
-
-printf("in main %s %d\n\n", argv[0], argc);
   int matrix_side = atoi(argv[1]);
-printf("matrix side %d\n", matrix_side );
   int total_pixels = matrix_side * matrix_side;
-printf("matrix_side: %d, total_pixels: %d\n############", matrix_side, total_pixels );
   if ( argc >=2 ){
     if (argc >= 4 ){
       strcpy (mapped_by,argv[2]);
-      strcpy (node_name,argv[3]);
     }
-printf("in main\n");
-
     /**** MPI ****/  
     MPI_CHECK(  MPI_Init(&argc, &argv) );
     MPI_CHECK(  MPI_Comm_rank(MPI_COMM_WORLD, &process_id) );
     MPI_CHECK(  MPI_Comm_size(MPI_COMM_WORLD, &number_processes) );
     elements_per_worker = total_pixels / number_processes;
-printf("elements per worker %d \n", elements_per_worker );
     //initialize memory
     init_memory();
 
@@ -192,15 +184,15 @@ printf("elements per worker %d \n", elements_per_worker );
     }
     start_time();
     /**** FIRST METHOD ****/
- calculate_histogram ( );
+    calculate_histogram ( );
     /**** SECOND METHOD ****/
     calculate_accum ( total_pixels );
     /**** THIRD METHOD ****/
     transform_image( );
     stop_time();
     if( process_id == MASTER ){
-	writeResults( matrix_side, number_processes,  mapped_by, node_name );
-	}
+      writeResults( matrix_side, mapped_by, node_name );
+    }
     //free memory
     free_memory();
     MPI_CHECK( MPI_Finalize() );

@@ -46,16 +46,14 @@ max_ppn=32
 sample_size=1
 max_matrix=2048
 
-echo "Mapping by core"
 for (( matrix_size=2048;matrix_size <= $max_matrix; matrix_size+=matrix_size  ))
 do 
-echo "Matrix Size: $matrix_size"
 for (( ppn = 1; ppn <= max_ppn; ++ppn )) 
 do
-echo "Running $sample_size * ppn: $ppn nodes: $nodes"
+echo "Running $sample_size * ppn: $ppn nodes"
 for (( seq_num=1; seq_num <= $sample_size; ++seq_num ))
 do
-mpirun -np $ppn --map-by core -mca btl self,sm,tcp --report-bindings bin/pcp_tp2_mpi $matrix_size
+mpirun -np $ppn --map-by core -mca btl self,sm,tcp --report-bindings bin/pcp_tp2_mpi $matrix_size "--map-by core ETH" 
 done
 done
 done
