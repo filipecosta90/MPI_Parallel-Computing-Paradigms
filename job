@@ -29,24 +29,20 @@
 #          Specify the number of nodes requested and the
 #          number of processors per node. 
 
-#PBS -l nodes=compute-641-8+compute-641-6:ppn=32:myri
+#PBS -l nodes=2:r641:ppn=32
 
 cd MPI_Parallel-Computing-Paradigms
 module purge
 
 module load gnu/4.9.0
 module load gnu/4.9.3
-module load gnu/openmpi_mx/1.8.4
-
+module load gnu/openmpi_eth/1.8.4
+ompi_info --param mpi all
 read -r node_info<$PBS_NODEFILE
-read node_all<$PBS_NODEFILE
-NNODES=`uniq $PBS_NODEFILE | wc -l`
 
 echo "Allocated computing node: $node_info"
-echo "number of nodes $NNODES"
-echo "$PBS_NODEFILE"
-echo "$node_all"
-max_ppn=4
+
+max_ppn=32
 sample_size=1
 max_matrix=2048
 
@@ -59,7 +55,7 @@ do
 echo "Running $sample_size * ppn: $ppn nodes: $nodes"
 for (( seq_num=1; seq_num <= $sample_size; ++seq_num ))
 do
-mpirun -np $ppn -bynode --report-bindings -machinefile maquinas.txt bin/pcp_tp2_mpi $matrix_size
+mpirun -np $ppn --map-by core -mca btl self,sm,tcp --report-bindings bin/pcp_tp2_mpi $matrix_size
 done
 done
 done
