@@ -165,23 +165,24 @@ void transform_image( ){
 
 int main (int argc, char *argv[]) {
 
+printf("in main %s %d\n\n", argv[0], argc);
   int matrix_side = atoi(argv[1]);
-	int number_nodes = atoi(argv[3]);
+printf("matrix side %d\n", matrix_side );
   int total_pixels = matrix_side * matrix_side;
-
-  if ( argc >=3 ){
-    if (argc >= 5 ){
-      strcpy (mapped_by,argv[4]);
-      strcpy (node_name,argv[5]);
+printf("matrix_side: %d, total_pixels: %d\n############", matrix_side, total_pixels );
+  if ( argc >=2 ){
+    if (argc >= 4 ){
+      strcpy (mapped_by,argv[2]);
+      strcpy (node_name,argv[3]);
     }
-
+printf("in main\n");
 
     /**** MPI ****/  
     MPI_CHECK(  MPI_Init(&argc, &argv) );
     MPI_CHECK(  MPI_Comm_rank(MPI_COMM_WORLD, &process_id) );
     MPI_CHECK(  MPI_Comm_size(MPI_COMM_WORLD, &number_processes) );
     elements_per_worker = total_pixels / number_processes;
-
+printf("elements per worker %d \n", elements_per_worker );
     //initialize memory
     init_memory();
 
@@ -191,16 +192,14 @@ int main (int argc, char *argv[]) {
     }
     start_time();
     /**** FIRST METHOD ****/
-	printf("first method\n");   
  calculate_histogram ( );
     /**** SECOND METHOD ****/
-printf("second method\n");
     calculate_accum ( total_pixels );
     /**** THIRD METHOD ****/
     transform_image( );
     stop_time();
     if( process_id == MASTER ){
-	writeResults( matrix_side, number_nodes,  mapped_by, node_name );
+	writeResults( matrix_side, number_processes,  mapped_by, node_name );
 	}
     //free memory
     free_memory();

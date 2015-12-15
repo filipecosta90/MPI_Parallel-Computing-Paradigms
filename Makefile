@@ -13,7 +13,7 @@ CXX = mpic++
 BIN = bin
 BIN_MPI = pcp_tp2_mpi
 
-CXXFLAGS   = -O3 -Wall -Wextra -std=c++11 -fopenmp 
+CXXFLAGS   = -O3 -Wall -Wextra -std=c++11 -fopenmp -g 
 LIBS = -L/share/apps/mpiP-3.4.1/ -lmpiP -lbfd -liberty -lunwind -lm
 
 SRC_DIR = src
