@@ -6,12 +6,12 @@
 
 SHELL = /bin/sh
 
-MPI = mpi_reduce
+MPI = mpi_gather
 MPICXX = mpic++
 CXX = mpic++
 
 BIN = bin
-BIN_MPI = pcp_tp2_mpi
+BIN_MPI = pcp_tp2_mpi_gather
 
 CXXFLAGS   = -O3 -Wall -Wextra -std=c++11 -fopenmp  
 LIBS = -L/share/apps/mpiP-3.4.1/ -lmpiP -lbfd -liberty -lunwind -lm
