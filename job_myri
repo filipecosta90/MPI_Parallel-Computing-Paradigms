@@ -29,7 +29,7 @@
 #          Specify the number of nodes requested and the
 #          number of processors per node. 
 
-#PBS -l nodes=2:r641:ppn=32
+#PBS -l nodes=2:r641:ppn=32:myri -I -V
 
 cd MPI_Parallel-Computing-Paradigms
 module purge
@@ -53,7 +53,7 @@ do
 echo "Running $sample_size * ppn: $ppn nodes"
 for (( seq_num=1; seq_num <= $sample_size; ++seq_num ))
 do
-mpirun -np $ppn --map-by core -mca btl self,sm,tcp --report-bindings bin/pcp_tp2_mpi_gather $matrix_size "--map-by core ETH Gather"
+mpirun -np $ppn --map-by core --report-bindings --mca mtl mx --mca pml cm bin/pcp_tp2_mpi_gather $matrix_size "--map-by core ETH Gather"
 done
 done
 done
