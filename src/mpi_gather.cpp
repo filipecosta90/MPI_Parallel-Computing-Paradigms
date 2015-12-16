@@ -10,6 +10,7 @@
 #include <iostream>
 #include <fstream>
 #include <string.h>
+#include <sstream>
 
 #include "mpi.h"
 #include <omp.h>
@@ -40,9 +41,10 @@ double hist_call_time, hist_exit_time, hist_duration, hist_compute_duration, his
 double accum_call_time, accum_exit_time, accum_duration, accum_compute_duration, accum_transmit_duration, accum_iddle_duration;
 double transform_call_time, transform_exit_time, transform_duration, transform_compute_duration, tranform_transmit_duration, transform_iddle_duration;
 
-// node info
-char node_name[40];
+// case study info
 char mapped_by[40];
+char comm_type[40];
+char property [40];
 
 // image matrixes
 int * worker_initial_image; 
@@ -105,11 +107,15 @@ void clearCache(){
     clearcache[i] = i;
 }
 
-void writeResults (int matrix_side , char* mapped_by ,  char * node_name ) {
-  ofstream file ("timing/timings.csv" , ios::out | ios::app );
-  file << number_processes <<" , "<< mapped_by  << " , " << matrix_side << " x " << matrix_side << " , " << hist_duration << " , " << accum_duration << " , "<< transform_duration << " , " << total_duration <<" , " << node_name << endl;
+void writeResults (int matrix_side , char* comm_type, char* mapped_by ,  char* property , int number_nodes ) {
+  std::ostringstream filenameSS;
+  filenameSS << "timing/" << number_nodes << "nodes_"<< matrix_side << "_" << comm_type << "_" <<  property <<".csv";
+        std::string filename = filenameSS.str(); // get string out of stream  
+ofstream file (filename.c_str() , ios::out | ios::app );
+  file << number_processes <<" , "<< mapped_by  << " , " << matrix_side << " x " << matrix_side << " , " << hist_duration << " , " << accum_duration << " , "<< transform_duration << " , " << total_duration << endl;
   file.close();
 }
+
 void start_time ( void ){
   initial_time = MPI_Wtime();
 }
@@ -177,13 +183,22 @@ void transform_image( ){
 int main (int argc, char *argv[]) {
   int matrix_side = atoi(argv[1]);
   int total_pixels = matrix_side * matrix_side;
-  if ( argc >=2 ){
+  int number_nodes = 0;
+  
+if ( argc >=2 ){
     if (argc >= 3 ){
       strcpy (mapped_by,argv[2]);
     }
 if (argc >= 4 ){
-      strcpy (node_name,argv[3]);
+      strcpy (comm_type,argv[3]);
     }
+if (argc >= 5 ){
+      strcpy (property,argv[4]);
+    }
+if (argc >= 6 ){
+	number_nodes = atoi(argv[5]);    
+}
+
     /**** MPI ****/  
     MPI_CHECK(  MPI_Init(&argc, &argv) );
     MPI_CHECK(  MPI_Comm_rank(MPI_COMM_WORLD, &process_id) );
@@ -205,7 +220,7 @@ if (argc >= 4 ){
     transform_image( );
     stop_time();
     if( process_id == MASTER ){
-      writeResults( matrix_side, mapped_by, node_name );
+      writeResults( matrix_side , comm_type, mapped_by ,  property , number_nodes );
     }
     //free memory
     free_memory();

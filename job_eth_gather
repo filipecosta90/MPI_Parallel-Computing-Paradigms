@@ -9,8 +9,8 @@
 #          PBS directives must come first; any directives
 #          after the first executable statement are ignored.
 
-#PBS -N pcp_tp2_2NODES
-#PBS -l walltime=00:20:00
+#PBS -N pcp_2nodes_gather_eth
+#PBS -l walltime=00:40:00
 #PBS -q mei
 
 #          PBS can send informative email messages to you about the
@@ -42,20 +42,22 @@ read -r node_info<$PBS_NODEFILE
 
 echo "Allocated computing node: $node_info"
 
-max_ppn=32
+max_ppn=64
 sample_size=5
 max_matrix=8192
 
 for (( matrix_size=2048;matrix_size <= $max_matrix; matrix_size+=matrix_size  ))
 do 
-for (( ppn = 1; ppn <= max_ppn; ++ppn )) 
+for (( ppn = 33; ppn <= max_ppn; ++ppn )) 
 do
 echo "Running $sample_size * ppn: $ppn nodes"
 for (( seq_num=1; seq_num <= $sample_size; ++seq_num ))
 do
-mpirun -np $ppn --map-by core -mca btl self,sm,tcp --report-bindings bin/pcp_tp2_mpi_gather $matrix_size "--map-by core ETH Gather"
+mpirun -np $ppn --map-by core -mca btl self,sm,tcp --report-bindings bin/eth_gather $matrix_size "mapped-by-core" "eth" "gather" 2
 done
 done
 done
+
+mv eth_gather* eth_results_gather/
 echo "Done..."
 

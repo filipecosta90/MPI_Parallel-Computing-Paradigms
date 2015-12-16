@@ -11,7 +11,7 @@ MPICXX = mpic++
 CXX = mpic++
 
 BIN = bin
-BIN_MPI = pcp_tp2_mpi_reduce
+BIN_MPI = myri_reduce
 
 CXXFLAGS   = -O3 -Wall -Wextra -std=c++11 -fopenmp  
 LIBS = -L/share/apps/mpiP-3.4.1/ -lmpiP -lbfd -liberty -lunwind -lm
@@ -31,7 +31,6 @@ vpath %.cpp $(SRC_DIR)
 ################################################################################
 
 .DEFAULT_GOAL = all
-
 
 $(BUILD_DIR)/%.d: %.cpp
 	$(CXX) -M $(CXXFLAGS) $(INCLUDES) $< -o $@ $(LIBS)
