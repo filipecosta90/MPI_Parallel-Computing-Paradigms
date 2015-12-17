@@ -82,7 +82,7 @@ void init_memory ( long long int total_pixels  ){
 }
 
 void free_memory (){
-  free( worker_local_histogram ); 
+  free( worker_local_histogram );
   free( worker_initial_image );
   free( worker_final_image );
   if ( process_id == MASTER ){
