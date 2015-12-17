@@ -9,7 +9,7 @@
 #          PBS directives must come first; any directives
 #          after the first executable statement are ignored.
 
-#PBS -N pcp_tp2_2nodes_eth_reduce_by_node
+#PBS -N pcp_tp2_2nodes_eth_extra
 #PBS -l walltime=00:60:00
 #PBS -q mei
 
@@ -54,11 +54,11 @@ do
 echo "Running $sample_size * ppn: $ppn nodes"
 for (( seq_num=1; seq_num <= $sample_size; ++seq_num ))
 do
-mpirun -np $ppn --map-by node --bind-to core -mca btl self,sm,tcp --report-bindings bin/eth_reduce_bynode $matrix_size "mapped-by-node" "eth" "reduce" 2
+mpirun -np $ppn --map-by core -mca btl self,sm,tcp --report-bindings bin/eth_extra $matrix_size "mapped-by-core-extra" "eth" "extra" 2
 done
 done
 done
 
-mv eth_reduce_bynode.* eth_results_reduce_by_node/
+mv eth_extra.* eth_extra/
 echo "Done..."
 
