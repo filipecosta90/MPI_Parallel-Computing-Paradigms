@@ -49,12 +49,12 @@ max_matrix=8196
 
 for (( matrix_size=2048;matrix_size <= $max_matrix; matrix_size+=matrix_size  ))
 do 
-for (( ppn = 1; ppn <= max_ppn; ++ppn )) 
+for (( ppn = 57; ppn <= max_ppn; ++ppn )) 
 do
 echo "Running $sample_size * ppn: $ppn nodes"
 for (( seq_num=1; seq_num <= $sample_size; ++seq_num ))
 do
-mpirun -np $ppn --map-by core -mca btl self,sm,tcp --report-bindings bin/eth_extra $matrix_size "mapped-by-core-extra" "eth-extra" "extra" 2
+mpirun -np $ppn --map-by core -mca btl self,sm,tcp --report-bindings bin/eth_extra $matrix_size "mapped-by-core-extra" "eth-extra_REVISED" "extra" 2
 done
 done
 done
