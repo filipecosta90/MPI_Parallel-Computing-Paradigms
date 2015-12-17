@@ -164,7 +164,7 @@ void calculate_accum ( long long int total_pixels  ){
 
 void transform_image( int thread_count ){
   transform_call_time = MPI_Wtime();
-int range_top, range_min;
+int range_min;
 range_min = elements_per_worker*process_id;
 #pragma omp parallel num_threads( thread_count ) 
   {

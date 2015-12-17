@@ -152,11 +152,13 @@ void calculate_accum ( long long int total_pixels  ){
 }
 
 void transform_image( ){
-  transform_call_time = MPI_Wtime();
-  for (long long int pixel_number = elements_per_worker*process_id; pixel_number%elements_per_worker < elements_per_worker; ++pixel_number ) {
-    worker_final_image[pixel_number%elements_per_worker] = ( int )( histogram_accumulated [ initial_image[pixel_number] ] );
-  }
+transform_call_time = MPI_Wtime();
+int range_min;
+range_min = elements_per_worker*process_id;
 
+for (long long int pixel_number = 0; pixel_number < elements_per_worker; ++pixel_number ) {
+    worker_final_image[pixel_number] = ( int )( histogram_accumulated [ initial_image[pixel_number+range_min] ] );
+  }
   // Gather all partial images down to the root process
   MPI_Gather( worker_final_image , elements_per_worker , MPI_INT , final_image , elements_per_worker , MPI_INT , MASTER , MPI_COMM_WORLD);
   transform_exit_time = MPI_Wtime();
