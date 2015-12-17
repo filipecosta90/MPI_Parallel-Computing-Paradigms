@@ -44,24 +44,25 @@ read -r node_info<$PBS_NODEFILE
 echo "Allocated computing node: $node_info"
 
 max_ppn=64
-sample_size=3
+sample_size=5
 max_matrix=8196
+max_openmp_processes=32
 
 for (( matrix_size=2048;matrix_size <= $max_matrix; matrix_size+=matrix_size  ))
 do 
-for (( ppn = 13; ppn <= max_ppn; ++ppn )) 
+for (( ppn = 1; ppn <= max_ppn; ++ppn )) 
 do
 echo "Running $sample_size * ppn: $ppn nodes"
 for (( seq_num=1; seq_num <= $sample_size; ++seq_num ))
 do
 for (( openmp_processes = 1; openmp_processes <= max_openmp_processes; ++openmp_processes ))
 do
-mpirun -np $ppn --map-by core -mca btl self,sm,tcp --report-bindings bin/eth_extra_openmp $matrix_size "mapped-by-core-extra" "eth_EXTRA_OMP" "extra_OMP" 2 $openmp_processes
+mpirun -np $ppn --map-by core -mca btl self,sm,tcp --report-bindings bin/eth_mpi_openmp $matrix_size "mapped-by-core-mpi-openmp" "eth_MPI_OMP" "MPI_OMP" 2 $openmp_processes
 done
 done
 done
 done
 
-mv eth_extra_openmp.* eth_extra_openmp/
+mv eth_mpi_openmp.* eth_mpi_openmp/
 echo "Done..."
 
