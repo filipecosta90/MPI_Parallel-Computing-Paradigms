@@ -136,7 +136,7 @@ void calculate_histogram ( long long int total_pixels ) {
 
   MPI_Bcast( initial_image , total_pixels , MPI_INT , MASTER , MPI_COMM_WORLD);
   for (long long int pixel_number = 0; pixel_number < total_pixels ; ++pixel_number) { 
-    worker_local_histogram[ worker_initial_image[pixel_number] ]++;
+    worker_local_histogram[ initial_image[pixel_number] ]++;
   }
   hist_exit_time = MPI_Wtime();
 }
@@ -153,7 +153,7 @@ void calculate_accum ( long long int total_pixels  ){
 
 void transform_image( ){
   transform_call_time = MPI_Wtime();
-  for (long long int pixel_number = elements_per_worker*process_id; pixel_number < elements_per_worker*(process_id+1); ++pixel_number ) {
+  for (long long int pixel_number = elements_per_worker*process_id; pixel_number%elements_per_worker < elements_per_worker; ++pixel_number ) {
     worker_final_image[pixel_number%elements_per_worker] = ( int )( histogram_accumulated [ initial_image[pixel_number] ] );
   }
 
