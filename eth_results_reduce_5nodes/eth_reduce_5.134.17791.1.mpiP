@@ -1,0 +1,1407 @@
+@ mpiP
+@ Command : bin/eth_reduce_5 8192 mapped-by-core_5 eth reduce_5NODES 5 
+@ Version                  : 3.4.1
+@ MPIP Build date          : Jun  5 2014, 13:01:50
+@ Start time               : 2015 12 17 11:17:55
+@ Stop time                : 2015 12 17 11:18:02
+@ Timer Used               : PMPI_Wtime
+@ MPIP env var             : [null]
+@ Collector Rank           : 0
+@ Collector PID            : 17791
+@ Final Output Dir         : .
+@ Report generation        : Single collector task
+@ MPI Task Assignment      : 0 compute-641-6.local
+@ MPI Task Assignment      : 1 compute-641-6.local
+@ MPI Task Assignment      : 2 compute-641-6.local
+@ MPI Task Assignment      : 3 compute-641-6.local
+@ MPI Task Assignment      : 4 compute-641-6.local
+@ MPI Task Assignment      : 5 compute-641-6.local
+@ MPI Task Assignment      : 6 compute-641-6.local
+@ MPI Task Assignment      : 7 compute-641-6.local
+@ MPI Task Assignment      : 8 compute-641-6.local
+@ MPI Task Assignment      : 9 compute-641-6.local
+@ MPI Task Assignment      : 10 compute-641-6.local
+@ MPI Task Assignment      : 11 compute-641-6.local
+@ MPI Task Assignment      : 12 compute-641-6.local
+@ MPI Task Assignment      : 13 compute-641-6.local
+@ MPI Task Assignment      : 14 compute-641-6.local
+@ MPI Task Assignment      : 15 compute-641-6.local
+@ MPI Task Assignment      : 16 compute-641-6.local
+@ MPI Task Assignment      : 17 compute-641-6.local
+@ MPI Task Assignment      : 18 compute-641-6.local
+@ MPI Task Assignment      : 19 compute-641-6.local
+@ MPI Task Assignment      : 20 compute-641-6.local
+@ MPI Task Assignment      : 21 compute-641-6.local
+@ MPI Task Assignment      : 22 compute-641-6.local
+@ MPI Task Assignment      : 23 compute-641-6.local
+@ MPI Task Assignment      : 24 compute-641-6.local
+@ MPI Task Assignment      : 25 compute-641-6.local
+@ MPI Task Assignment      : 26 compute-641-6.local
+@ MPI Task Assignment      : 27 compute-641-6.local
+@ MPI Task Assignment      : 28 compute-641-6.local
+@ MPI Task Assignment      : 29 compute-641-6.local
+@ MPI Task Assignment      : 30 compute-641-6.local
+@ MPI Task Assignment      : 31 compute-641-6.local
+@ MPI Task Assignment      : 32 compute-641-4.local
+@ MPI Task Assignment      : 33 compute-641-4.local
+@ MPI Task Assignment      : 34 compute-641-4.local
+@ MPI Task Assignment      : 35 compute-641-4.local
+@ MPI Task Assignment      : 36 compute-641-4.local
+@ MPI Task Assignment      : 37 compute-641-4.local
+@ MPI Task Assignment      : 38 compute-641-4.local
+@ MPI Task Assignment      : 39 compute-641-4.local
+@ MPI Task Assignment      : 40 compute-641-4.local
+@ MPI Task Assignment      : 41 compute-641-4.local
+@ MPI Task Assignment      : 42 compute-641-4.local
+@ MPI Task Assignment      : 43 compute-641-4.local
+@ MPI Task Assignment      : 44 compute-641-4.local
+@ MPI Task Assignment      : 45 compute-641-4.local
+@ MPI Task Assignment      : 46 compute-641-4.local
+@ MPI Task Assignment      : 47 compute-641-4.local
+@ MPI Task Assignment      : 48 compute-641-4.local
+@ MPI Task Assignment      : 49 compute-641-4.local
+@ MPI Task Assignment      : 50 compute-641-4.local
+@ MPI Task Assignment      : 51 compute-641-4.local
+@ MPI Task Assignment      : 52 compute-641-4.local
+@ MPI Task Assignment      : 53 compute-641-4.local
+@ MPI Task Assignment      : 54 compute-641-4.local
+@ MPI Task Assignment      : 55 compute-641-4.local
+@ MPI Task Assignment      : 56 compute-641-4.local
+@ MPI Task Assignment      : 57 compute-641-4.local
+@ MPI Task Assignment      : 58 compute-641-4.local
+@ MPI Task Assignment      : 59 compute-641-4.local
+@ MPI Task Assignment      : 60 compute-641-4.local
+@ MPI Task Assignment      : 61 compute-641-4.local
+@ MPI Task Assignment      : 62 compute-641-4.local
+@ MPI Task Assignment      : 63 compute-641-4.local
+@ MPI Task Assignment      : 64 compute-641-20.local
+@ MPI Task Assignment      : 65 compute-641-20.local
+@ MPI Task Assignment      : 66 compute-641-20.local
+@ MPI Task Assignment      : 67 compute-641-20.local
+@ MPI Task Assignment      : 68 compute-641-20.local
+@ MPI Task Assignment      : 69 compute-641-20.local
+@ MPI Task Assignment      : 70 compute-641-20.local
+@ MPI Task Assignment      : 71 compute-641-20.local
+@ MPI Task Assignment      : 72 compute-641-20.local
+@ MPI Task Assignment      : 73 compute-641-20.local
+@ MPI Task Assignment      : 74 compute-641-20.local
+@ MPI Task Assignment      : 75 compute-641-20.local
+@ MPI Task Assignment      : 76 compute-641-20.local
+@ MPI Task Assignment      : 77 compute-641-20.local
+@ MPI Task Assignment      : 78 compute-641-20.local
+@ MPI Task Assignment      : 79 compute-641-20.local
+@ MPI Task Assignment      : 80 compute-641-20.local
+@ MPI Task Assignment      : 81 compute-641-20.local
+@ MPI Task Assignment      : 82 compute-641-20.local
+@ MPI Task Assignment      : 83 compute-641-20.local
+@ MPI Task Assignment      : 84 compute-641-20.local
+@ MPI Task Assignment      : 85 compute-641-20.local
+@ MPI Task Assignment      : 86 compute-641-20.local
+@ MPI Task Assignment      : 87 compute-641-20.local
+@ MPI Task Assignment      : 88 compute-641-20.local
+@ MPI Task Assignment      : 89 compute-641-20.local
+@ MPI Task Assignment      : 90 compute-641-20.local
+@ MPI Task Assignment      : 91 compute-641-20.local
+@ MPI Task Assignment      : 92 compute-641-20.local
+@ MPI Task Assignment      : 93 compute-641-20.local
+@ MPI Task Assignment      : 94 compute-641-20.local
+@ MPI Task Assignment      : 95 compute-641-20.local
+@ MPI Task Assignment      : 96 compute-641-16.local
+@ MPI Task Assignment      : 97 compute-641-16.local
+@ MPI Task Assignment      : 98 compute-641-16.local
+@ MPI Task Assignment      : 99 compute-641-16.local
+@ MPI Task Assignment      : 100 compute-641-16.local
+@ MPI Task Assignment      : 101 compute-641-16.local
+@ MPI Task Assignment      : 102 compute-641-16.local
+@ MPI Task Assignment      : 103 compute-641-16.local
+@ MPI Task Assignment      : 104 compute-641-16.local
+@ MPI Task Assignment      : 105 compute-641-16.local
+@ MPI Task Assignment      : 106 compute-641-16.local
+@ MPI Task Assignment      : 107 compute-641-16.local
+@ MPI Task Assignment      : 108 compute-641-16.local
+@ MPI Task Assignment      : 109 compute-641-16.local
+@ MPI Task Assignment      : 110 compute-641-16.local
+@ MPI Task Assignment      : 111 compute-641-16.local
+@ MPI Task Assignment      : 112 compute-641-16.local
+@ MPI Task Assignment      : 113 compute-641-16.local
+@ MPI Task Assignment      : 114 compute-641-16.local
+@ MPI Task Assignment      : 115 compute-641-16.local
+@ MPI Task Assignment      : 116 compute-641-16.local
+@ MPI Task Assignment      : 117 compute-641-16.local
+@ MPI Task Assignment      : 118 compute-641-16.local
+@ MPI Task Assignment      : 119 compute-641-16.local
+@ MPI Task Assignment      : 120 compute-641-16.local
+@ MPI Task Assignment      : 121 compute-641-16.local
+@ MPI Task Assignment      : 122 compute-641-16.local
+@ MPI Task Assignment      : 123 compute-641-16.local
+@ MPI Task Assignment      : 124 compute-641-16.local
+@ MPI Task Assignment      : 125 compute-641-16.local
+@ MPI Task Assignment      : 126 compute-641-16.local
+@ MPI Task Assignment      : 127 compute-641-16.local
+@ MPI Task Assignment      : 128 compute-641-14.local
+@ MPI Task Assignment      : 129 compute-641-14.local
+@ MPI Task Assignment      : 130 compute-641-14.local
+@ MPI Task Assignment      : 131 compute-641-14.local
+@ MPI Task Assignment      : 132 compute-641-14.local
+@ MPI Task Assignment      : 133 compute-641-14.local
+
+---------------------------------------------------------------------------
+@--- MPI Time (seconds) ---------------------------------------------------
+---------------------------------------------------------------------------
+Task    AppTime    MPITime     MPI%
+   0       6.78       4.62    68.10
+   1       4.57       4.57    99.93
+   2       4.61       4.61    99.93
+   3       4.65       4.65    99.90
+   4       4.61       4.61    99.94
+   5       4.61        4.6    99.90
+   6       4.62       4.61    99.89
+   7       4.62       4.61    99.90
+   8        4.6       4.59    99.91
+   9       4.63       4.63    99.91
+  10       4.63       4.63    99.91
+  11       4.63       4.63    99.91
+  12       4.64       4.63    99.93
+  13       4.62       4.62    99.90
+  14       4.64       4.63    99.91
+  15       4.64       4.63    99.90
+  16       4.64       4.64    99.92
+  17       4.65       4.65    99.91
+  18       4.65       4.65    99.91
+  19       4.65       4.64    99.93
+  20       4.66       4.65    99.92
+  21       4.66       4.65    99.92
+  22       4.64       4.63    99.90
+  23       4.66       4.66    99.94
+  24       4.65       4.64    99.90
+  25       4.66       4.66    99.90
+  26       4.66       4.66    99.90
+  27       4.67       4.67    99.91
+  28       4.67       4.67    99.92
+  29       4.67       4.67    99.92
+  30       4.66       4.65    99.91
+  31       4.71       4.71    99.90
+  32       4.85       4.85    99.90
+  33       4.83       4.83    99.91
+  34        4.9        4.9    99.94
+  35       4.81       4.81    99.91
+  36       4.89       4.88    99.73
+  37       4.84       4.83    99.91
+  38       4.96       4.96    99.94
+  39       4.83       4.82    99.90
+  40       4.97       4.96    99.93
+  41       4.86       4.86    99.91
+  42       5.12       5.12    99.92
+  43       5.01       5.01    99.94
+  44          5          5    99.93
+  45          5          5    99.91
+  46       5.21       5.21    99.91
+  47       5.13       5.13    99.92
+  48       5.09       5.09    99.91
+  49       5.17       5.17    99.91
+  50       5.02       5.02    99.90
+  51       5.23       5.23    99.94
+  52       5.21        5.2    99.94
+  53       5.24       5.24    99.91
+  54       5.23       5.23    99.94
+  55       5.11       5.11    99.93
+  56       5.25       5.25    99.93
+  57       5.21        5.2    99.93
+  58       5.18       5.18    99.92
+  59       5.23       5.23    99.94
+  60       5.19       5.19    99.94
+  61       5.27       5.27    99.93
+  62       5.16       5.16    99.95
+  63       5.27       5.27    99.94
+  64       5.51       5.51    99.93
+  65       5.43       5.42    99.93
+  66       5.39       5.38    99.93
+  67       5.48       5.48    99.93
+  68        5.4       5.39    99.92
+  69       5.42       5.42    99.92
+  70        5.4        5.4    99.92
+  71       5.59       5.57    99.75
+  72       5.47       5.47    99.93
+  73       5.44       5.44    99.94
+  74       5.54       5.53    99.93
+  75       5.65       5.64    99.94
+  76       5.55       5.54    99.92
+  77       5.54       5.54    99.93
+  78       5.68       5.68    99.93
+  79       5.58       5.58    99.93
+  80        5.6        5.6    99.93
+  81       5.62       5.62    99.93
+  82       5.66       5.66    99.92
+  83       5.81       5.81    99.95
+  84       5.84       5.84    99.96
+  85       5.69       5.68    99.94
+  86       5.71       5.71    99.94
+  87       5.79       5.79    99.94
+  88        5.7        5.7    99.93
+  89       5.84       5.83    99.93
+  90       5.82       5.82    99.93
+  91       5.76       5.76    99.94
+  92        5.8       5.79    99.94
+  93        5.8       5.79    99.93
+  94       5.85       5.85    99.93
+  95       5.85       5.85    99.93
+  96        6.1        6.1    99.92
+  97       6.19       6.19    99.92
+  98       6.26       6.26    99.95
+  99       6.27       6.27    99.92
+ 100       6.15       6.15    99.95
+ 101       6.37       6.36    99.95
+ 102       6.42       6.41    99.92
+ 103       6.19       6.18    99.92
+ 104       6.27       6.27    99.92
+ 105       6.24       6.23    99.76
+ 106       6.38       6.38    99.93
+ 107       6.27       6.27    99.94
+ 108        6.3       6.28    99.79
+ 109        6.3        6.3    99.93
+ 110       6.22       6.22    99.96
+ 111       6.55       6.55    99.95
+ 112        6.3       6.29    99.93
+ 113       6.33       6.33    99.92
+ 114       6.34       6.34    99.95
+ 115       6.47       6.47    99.96
+ 116       6.36       6.36    99.93
+ 117       6.48       6.48    99.92
+ 118       6.49       6.48    99.95
+ 119       6.51       6.51    99.95
+ 120       6.57       6.56    99.95
+ 121       6.52       6.52    99.93
+ 122       6.54       6.54    99.95
+ 123       6.45       6.45    99.93
+ 124        6.5        6.5    99.93
+ 125       6.48       6.47    99.80
+ 126        6.5       6.49    99.96
+ 127       6.56       6.55    99.94
+ 128       6.78       6.77    99.97
+ 129       6.75       6.75    99.96
+ 130       6.75       6.75    99.97
+ 131       6.75       6.75    99.97
+ 132       6.75       6.75    99.97
+ 133       6.75       6.75    99.97
+   *        738        735    99.63
+---------------------------------------------------------------------------
+@--- Callsites: 4 ---------------------------------------------------------
+---------------------------------------------------------------------------
+ ID Lev File/Address        Line Parent_Funct             MPI_Call
+  1   0 0x40f0c5                 _Z15calculate_accumx     Bcast
+  2   0 0x40f02d                 _Z19calculate_histogramv Reduce
+  3   0 0x40f151                 _Z15transform_imagev     Gather
+  4   0 0x40efcc                 _Z19calculate_histogramv Scatter
+---------------------------------------------------------------------------
+@--- Aggregate Time (top twenty, descending, milliseconds) ----------------
+---------------------------------------------------------------------------
+Call                 Site       Time    App%    MPI%     COV
+Scatter                 4   4.16e+05   56.39   56.60    0.26
+Bcast                   1   1.88e+05   25.43   25.52    0.59
+Gather                  3   1.25e+05   16.88   16.95    0.76
+Reduce                  2   6.85e+03    0.93    0.93    3.19
+---------------------------------------------------------------------------
+@--- Aggregate Sent Message Size (top twenty, descending, bytes) ----------
+---------------------------------------------------------------------------
+Call                 Site      Count      Total       Avrg  Sent%
+Gather                  3        134   2.68e+08      2e+06  49.97
+Scatter                 4        134   2.68e+08      2e+06  49.97
+Reduce                  2        134   1.37e+05   1.02e+03   0.03
+Bcast                   1        134   1.37e+05   1.02e+03   0.03
+---------------------------------------------------------------------------
+@--- Callsite Time statistics (all, milliseconds): 536 --------------------
+---------------------------------------------------------------------------
+Name              Site Rank  Count      Max     Mean      Min   App%   MPI%
+Bcast                1    0      1    0.111    0.111    0.111   0.00   0.00
+Bcast                1    1      1 2.42e+03 2.42e+03 2.42e+03  52.88  52.91
+Bcast                1    2      1 2.42e+03 2.42e+03 2.42e+03  52.46  52.50
+Bcast                1    3      1 2.42e+03 2.42e+03 2.42e+03  51.92  51.97
+Bcast                1    4      1 2.42e+03 2.42e+03 2.42e+03  52.33  52.37
+Bcast                1    5      1 2.41e+03 2.41e+03 2.41e+03  52.34  52.39
+Bcast                1    6      1 2.41e+03 2.41e+03 2.41e+03  52.20  52.26
+Bcast                1    7      1 2.41e+03 2.41e+03 2.41e+03  52.19  52.24
+Bcast                1    8      1  2.4e+03  2.4e+03  2.4e+03  52.20  52.25
+Bcast                1    9      1 2.41e+03 2.41e+03 2.41e+03  51.99  52.04
+Bcast                1   10      1 2.41e+03 2.41e+03 2.41e+03  51.93  51.98
+Bcast                1   11      1 2.41e+03 2.41e+03 2.41e+03  51.91  51.95
+Bcast                1   12      1  2.4e+03  2.4e+03  2.4e+03  51.79  51.83
+Bcast                1   13      1  2.4e+03  2.4e+03  2.4e+03  52.02  52.07
+Bcast                1   14      1  2.4e+03  2.4e+03  2.4e+03  51.76  51.80
+Bcast                1   15      1  2.4e+03  2.4e+03  2.4e+03  51.76  51.81
+Bcast                1   16      1 2.37e+03 2.37e+03 2.37e+03  51.11  51.15
+Bcast                1   17      1  2.4e+03  2.4e+03  2.4e+03  51.55  51.60
+Bcast                1   18      1  2.4e+03  2.4e+03  2.4e+03  51.49  51.53
+Bcast                1   19      1 2.41e+03 2.41e+03 2.41e+03  51.87  51.91
+Bcast                1   20      1 2.39e+03 2.39e+03 2.39e+03  51.36  51.40
+Bcast                1   21      1 2.39e+03 2.39e+03 2.39e+03  51.40  51.44
+Bcast                1   22      1 2.39e+03 2.39e+03 2.39e+03  51.58  51.63
+Bcast                1   23      1 2.39e+03 2.39e+03 2.39e+03  51.39  51.43
+Bcast                1   24      1 2.37e+03 2.37e+03 2.37e+03  51.02  51.07
+Bcast                1   25      1 2.38e+03 2.38e+03 2.38e+03  51.11  51.16
+Bcast                1   26      1 2.38e+03 2.38e+03 2.38e+03  51.05  51.10
+Bcast                1   27      1 2.38e+03 2.38e+03 2.38e+03  50.94  50.98
+Bcast                1   28      1 2.37e+03 2.37e+03 2.37e+03  50.77  50.81
+Bcast                1   29      1 2.38e+03 2.38e+03 2.38e+03  50.88  50.93
+Bcast                1   30      1 2.37e+03 2.37e+03 2.37e+03  50.95  51.00
+Bcast                1   31      1 2.37e+03 2.37e+03 2.37e+03  50.34  50.38
+Bcast                1   32      1  1.6e+03  1.6e+03  1.6e+03  32.98  33.02
+Bcast                1   33      1 2.34e+03 2.34e+03 2.34e+03  48.33  48.38
+Bcast                1   34      1 2.31e+03 2.31e+03 2.31e+03  47.10  47.13
+Bcast                1   35      1  2.3e+03  2.3e+03  2.3e+03  47.85  47.89
+Bcast                1   36      1 2.23e+03 2.23e+03 2.23e+03  45.56  45.68
+Bcast                1   37      1 2.26e+03 2.26e+03 2.26e+03  46.65  46.70
+Bcast                1   38      1 2.22e+03 2.22e+03 2.22e+03  44.81  44.84
+Bcast                1   39      1 2.22e+03 2.22e+03 2.22e+03  46.04  46.08
+Bcast                1   40      1    2e+03    2e+03    2e+03  40.18  40.21
+Bcast                1   41      1 2.19e+03 2.19e+03 2.19e+03  45.10  45.14
+Bcast                1   42      1 2.13e+03 2.13e+03 2.13e+03  41.52  41.55
+Bcast                1   43      1 2.13e+03 2.13e+03 2.13e+03  42.56  42.59
+Bcast                1   44      1    2e+03    2e+03    2e+03  39.91  39.93
+Bcast                1   45      1 2.08e+03 2.08e+03 2.08e+03  41.57  41.61
+Bcast                1   46      1    2e+03    2e+03    2e+03  38.29  38.32
+Bcast                1   47      1 2.01e+03 2.01e+03 2.01e+03  39.09  39.12
+Bcast                1   48      1  1.6e+03  1.6e+03  1.6e+03  31.43  31.46
+Bcast                1   49      1 1.97e+03 1.97e+03 1.97e+03  38.12  38.16
+Bcast                1   50      1 1.94e+03 1.94e+03 1.94e+03  38.61  38.65
+Bcast                1   51      1 1.95e+03 1.95e+03 1.95e+03  37.31  37.33
+Bcast                1   52      1 1.85e+03 1.85e+03 1.85e+03  35.61  35.63
+Bcast                1   53      1 1.89e+03 1.89e+03 1.89e+03  35.98  36.01
+Bcast                1   54      1 1.85e+03 1.85e+03 1.85e+03  35.44  35.46
+Bcast                1   55      1 1.85e+03 1.85e+03 1.85e+03  36.27  36.30
+Bcast                1   56      1  1.6e+03  1.6e+03  1.6e+03  30.49  30.51
+Bcast                1   57      1 1.81e+03 1.81e+03 1.81e+03  34.78  34.81
+Bcast                1   58      1 1.75e+03 1.75e+03 1.75e+03  33.83  33.86
+Bcast                1   59      1 1.75e+03 1.75e+03 1.75e+03  33.52  33.54
+Bcast                1   60      1  1.6e+03  1.6e+03  1.6e+03  30.84  30.86
+Bcast                1   61      1 1.64e+03 1.64e+03 1.64e+03  31.16  31.18
+Bcast                1   62      1  1.6e+03  1.6e+03  1.6e+03  31.02  31.03
+Bcast                1   63      1  1.6e+03  1.6e+03  1.6e+03  30.39  30.41
+Bcast                1   64      1      131      131      131   2.38   2.38
+Bcast                1   65      1 1.56e+03 1.56e+03 1.56e+03  28.74  28.76
+Bcast                1   66      1 1.52e+03 1.52e+03 1.52e+03  28.28  28.30
+Bcast                1   67      1 1.52e+03 1.52e+03 1.52e+03  27.79  27.81
+Bcast                1   68      1 1.43e+03 1.43e+03 1.43e+03  26.51  26.53
+Bcast                1   69      1 1.48e+03 1.48e+03 1.48e+03  27.32  27.34
+Bcast                1   70      1 1.43e+03 1.43e+03 1.43e+03  26.47  26.49
+Bcast                1   71      1 1.43e+03 1.43e+03 1.43e+03  25.61  25.67
+Bcast                1   72      1 1.22e+03 1.22e+03 1.22e+03  22.22  22.24
+Bcast                1   73      1 1.37e+03 1.37e+03 1.37e+03  25.23  25.25
+Bcast                1   74      1 1.31e+03 1.31e+03 1.31e+03  23.64  23.66
+Bcast                1   75      1 1.31e+03 1.31e+03 1.31e+03  23.19  23.21
+Bcast                1   76      1 1.22e+03 1.22e+03 1.22e+03  21.93  21.94
+Bcast                1   77      1 1.25e+03 1.25e+03 1.25e+03  22.57  22.58
+Bcast                1   78      1 1.22e+03 1.22e+03 1.22e+03  21.41  21.43
+Bcast                1   79      1 1.22e+03 1.22e+03 1.22e+03  21.80  21.81
+Bcast                1   80      1      852      852      852  15.22  15.23
+Bcast                1   81      1 1.18e+03 1.18e+03 1.18e+03  21.04  21.05
+Bcast                1   82      1 1.15e+03 1.15e+03 1.15e+03  20.29  20.31
+Bcast                1   83      1 1.15e+03 1.15e+03 1.15e+03  19.87  19.88
+Bcast                1   84      1 1.03e+03 1.03e+03 1.03e+03  17.67  17.68
+Bcast                1   85      1 1.09e+03 1.09e+03 1.09e+03  19.16  19.18
+Bcast                1   86      1 1.03e+03 1.03e+03 1.03e+03  18.08  18.09
+Bcast                1   87      1 1.04e+03 1.04e+03 1.04e+03  17.87  17.88
+Bcast                1   88      1      852      852      852  14.94  14.95
+Bcast                1   89      1      982      982      982  16.83  16.84
+Bcast                1   90      1      921      921      921  15.83  15.84
+Bcast                1   91      1      921      921      921  15.98  15.99
+Bcast                1   92      1      852      852      852  14.70  14.71
+Bcast                1   93      1      888      888      888  15.33  15.34
+Bcast                1   94      1      853      853      853  14.57  14.58
+Bcast                1   95      1      853      853      853  14.57  14.58
+Bcast                1   96      1      132      132      132   2.16   2.16
+Bcast                1   97      1      820      820      820  13.24  13.25
+Bcast                1   98      1      775      775      775  12.38  12.39
+Bcast                1   99      1      771      771      771  12.29  12.30
+Bcast                1  100      1      708      708      708  11.51  11.51
+Bcast                1  101      1      736      736      736  11.56  11.57
+Bcast                1  102      1      703      703      703  10.96  10.96
+Bcast                1  103      1      703      703      703  11.36  11.37
+Bcast                1  104      1      552      552      552   8.80   8.81
+Bcast                1  105      1      670      670      670  10.74  10.76
+Bcast                1  106      1      636      636      636   9.96   9.97
+Bcast                1  107      1      635      635      635  10.13  10.13
+Bcast                1  108      1      552      552      552   8.77   8.79
+Bcast                1  109      1      593      593      593   9.41   9.41
+Bcast                1  110      1      552      552      552   8.87   8.87
+Bcast                1  111      1      553      553      553   8.44   8.44
+Bcast                1  112      1      132      132      132   2.10   2.10
+Bcast                1  113      1      507      507      507   8.01   8.02
+Bcast                1  114      1      450      450      450   7.09   7.09
+Bcast                1  115      1      464      464      464   7.17   7.17
+Bcast                1  116      1      338      338      338   5.31   5.31
+Bcast                1  117      1      387      387      387   5.98   5.98
+Bcast                1  118      1      338      338      338   5.21   5.22
+Bcast                1  119      1      338      338      338   5.19   5.20
+Bcast                1  120      1      132      132      132   2.01   2.02
+Bcast                1  121      1      296      296      296   4.54   4.54
+Bcast                1  122      1      237      237      237   3.62   3.62
+Bcast                1  123      1      237      237      237   3.67   3.67
+Bcast                1  124      1      132      132      132   2.04   2.04
+Bcast                1  125      1      177      177      177   2.73   2.73
+Bcast                1  126      1      133      133      133   2.04   2.04
+Bcast                1  127      1      133      133      133   2.03   2.03
+Bcast                1  128      1    0.214    0.214    0.214   0.00   0.00
+Bcast                1  129      1     90.5     90.5     90.5   1.34   1.34
+Bcast                1  130      1     57.4     57.4     57.4   0.85   0.85
+Bcast                1  131      1     57.2     57.2     57.2   0.85   0.85
+Bcast                1  132      1    0.832    0.832    0.832   0.01   0.01
+Bcast                1  133      1     1.11     1.11     1.11   0.02   0.02
+Bcast                1    *    134 2.42e+03  1.4e+03    0.111  25.43  25.52
+
+Gather               3    0      1  2.2e+03  2.2e+03  2.2e+03  32.41  47.58
+Gather               3    1      1     2.76     2.76     2.76   0.06   0.06
+Gather               3    2      1     30.2     30.2     30.2   0.66   0.66
+Gather               3    3      1       73       73       73   1.57   1.57
+Gather               3    4      1     32.3     32.3     32.3   0.70   0.70
+Gather               3    5      1     36.7     36.7     36.7   0.80   0.80
+Gather               3    6      1     38.7     38.7     38.7   0.84   0.84
+Gather               3    7      1     40.2     40.2     40.2   0.87   0.87
+Gather               3    8      1     41.7     41.7     41.7   0.91   0.91
+Gather               3    9      1     53.7     53.7     53.7   1.16   1.16
+Gather               3   10      1     54.9     54.9     54.9   1.18   1.19
+Gather               3   11      1     56.4     56.4     56.4   1.22   1.22
+Gather               3   12      1     58.3     58.3     58.3   1.26   1.26
+Gather               3   13      1     58.3     58.3     58.3   1.26   1.26
+Gather               3   14      1     59.9     59.9     59.9   1.29   1.29
+Gather               3   15      1     60.6     60.6     60.6   1.31   1.31
+Gather               3   16      1     63.5     63.5     63.5   1.37   1.37
+Gather               3   17      1     74.6     74.6     74.6   1.60   1.61
+Gather               3   18      1       76       76       76   1.63   1.63
+Gather               3   19      1     64.1     64.1     64.1   1.38   1.38
+Gather               3   20      1     78.9     78.9     78.9   1.69   1.70
+Gather               3   21      1     79.9     79.9     79.9   1.72   1.72
+Gather               3   22      1     79.2     79.2     79.2   1.71   1.71
+Gather               3   23      1     79.3     79.3     79.3   1.70   1.70
+Gather               3   24      1     81.9     81.9     81.9   1.76   1.76
+Gather               3   25      1     81.6     81.6     81.6   1.75   1.75
+Gather               3   26      1     82.6     82.6     82.6   1.77   1.77
+Gather               3   27      1     93.5     93.5     93.5   2.00   2.00
+Gather               3   28      1     94.4     94.4     94.4   2.02   2.02
+Gather               3   29      1     93.7     93.7     93.7   2.01   2.01
+Gather               3   30      1     94.1     94.1     94.1   2.02   2.02
+Gather               3   31      1      135      135      135   2.86   2.86
+Gather               3   32      1      272      272      272   5.61   5.62
+Gather               3   33      1      252      252      252   5.22   5.22
+Gather               3   34      1      317      317      317   6.47   6.47
+Gather               3   35      1      235      235      235   4.89   4.89
+Gather               3   36      1      309      309      309   6.32   6.34
+Gather               3   37      1      262      262      262   5.40   5.41
+Gather               3   38      1      394      394      394   7.94   7.94
+Gather               3   39      1      251      251      251   5.20   5.21
+Gather               3   40      1      394      394      394   7.93   7.94
+Gather               3   41      1      281      281      281   5.78   5.79
+Gather               3   42      1      562      562      562  10.97  10.98
+Gather               3   43      1      434      434      434   8.66   8.67
+Gather               3   44      1      433      433      433   8.67   8.67
+Gather               3   45      1      435      435      435   8.69   8.70
+Gather               3   46      1      634      634      634  12.17  12.18
+Gather               3   47      1      578      578      578  11.27  11.28
+Gather               3   48      1      516      516      516  10.13  10.14
+Gather               3   49      1      595      595      595  11.50  11.51
+Gather               3   50      1      471      471      471   9.38   9.38
+Gather               3   51      1      643      643      643  12.29  12.30
+Gather               3   52      1      629      629      629  12.09  12.09
+Gather               3   53      1      666      666      666  12.70  12.71
+Gather               3   54      1      655      655      655  12.53  12.54
+Gather               3   55      1      534      534      534  10.45  10.46
+Gather               3   56      1      676      676      676  12.87  12.88
+Gather               3   57      1      635      635      635  12.20  12.21
+Gather               3   58      1      617      617      617  11.91  11.92
+Gather               3   59      1      652      652      652  12.46  12.47
+Gather               3   60      1      617      617      617  11.88  11.89
+Gather               3   61      1      702      702      702  13.31  13.32
+Gather               3   62      1      587      587      587  11.38  11.38
+Gather               3   63      1      695      695      695  13.18  13.19
+Gather               3   64      1      935      935      935  16.96  16.97
+Gather               3   65      1      848      848      848  15.63  15.64
+Gather               3   66      1      810      810      810  15.03  15.04
+Gather               3   67      1      913      913      913  16.66  16.67
+Gather               3   68      1      818      818      818  15.16  15.17
+Gather               3   69      1      842      842      842  15.54  15.55
+Gather               3   70      1      830      830      830  15.37  15.38
+Gather               3   71      1    1e+03    1e+03    1e+03  17.89  17.94
+Gather               3   72      1      896      896      896  16.38  16.39
+Gather               3   73      1      869      869      869  15.98  15.98
+Gather               3   74      1      961      961      961  17.36  17.37
+Gather               3   75      1 1.08e+03 1.08e+03 1.08e+03  19.05  19.06
+Gather               3   76      1      970      970      970  17.48  17.49
+Gather               3   77      1      970      970      970  17.51  17.52
+Gather               3   78      1 1.11e+03 1.11e+03 1.11e+03  19.54  19.55
+Gather               3   79      1    1e+03    1e+03    1e+03  18.00  18.01
+Gather               3   80      1 1.03e+03 1.03e+03 1.03e+03  18.36  18.37
+Gather               3   81      1 1.04e+03 1.04e+03 1.04e+03  18.55  18.57
+Gather               3   82      1 1.08e+03 1.08e+03 1.08e+03  19.13  19.14
+Gather               3   83      1 1.23e+03 1.23e+03 1.23e+03  21.16  21.17
+Gather               3   84      1 1.27e+03 1.27e+03 1.27e+03  21.70  21.71
+Gather               3   85      1 1.11e+03 1.11e+03 1.11e+03  19.54  19.55
+Gather               3   86      1 1.13e+03 1.13e+03 1.13e+03  19.87  19.88
+Gather               3   87      1 1.21e+03 1.21e+03 1.21e+03  20.96  20.97
+Gather               3   88      1 1.12e+03 1.12e+03 1.12e+03  19.73  19.74
+Gather               3   89      1 1.26e+03 1.26e+03 1.26e+03  21.58  21.59
+Gather               3   90      1 1.24e+03 1.24e+03 1.24e+03  21.38  21.40
+Gather               3   91      1 1.19e+03 1.19e+03 1.19e+03  20.61  20.63
+Gather               3   92      1 1.22e+03 1.22e+03 1.22e+03  21.07  21.09
+Gather               3   93      1 1.22e+03 1.22e+03 1.22e+03  21.04  21.06
+Gather               3   94      1 1.28e+03 1.28e+03 1.28e+03  21.80  21.82
+Gather               3   95      1 1.28e+03 1.28e+03 1.28e+03  21.83  21.85
+Gather               3   96      1 1.54e+03 1.54e+03 1.54e+03  25.23  25.25
+Gather               3   97      1 1.62e+03 1.62e+03 1.62e+03  26.12  26.14
+Gather               3   98      1 1.68e+03 1.68e+03 1.68e+03  26.85  26.87
+Gather               3   99      1  1.7e+03  1.7e+03  1.7e+03  27.07  27.09
+Gather               3  100      1 1.57e+03 1.57e+03 1.57e+03  25.54  25.56
+Gather               3  101      1 1.79e+03 1.79e+03 1.79e+03  28.07  28.08
+Gather               3  102      1 1.84e+03 1.84e+03 1.84e+03  28.63  28.66
+Gather               3  103      1 1.61e+03 1.61e+03 1.61e+03  25.99  26.01
+Gather               3  104      1 1.69e+03 1.69e+03 1.69e+03  27.01  27.04
+Gather               3  105      1 1.66e+03 1.66e+03 1.66e+03  26.53  26.59
+Gather               3  106      1 1.81e+03 1.81e+03 1.81e+03  28.33  28.35
+Gather               3  107      1  1.7e+03  1.7e+03  1.7e+03  27.05  27.06
+Gather               3  108      1 1.71e+03 1.71e+03 1.71e+03  27.16  27.22
+Gather               3  109      1 1.76e+03 1.76e+03 1.76e+03  27.84  27.86
+Gather               3  110      1 1.65e+03 1.65e+03 1.65e+03  26.45  26.46
+Gather               3  111      1 1.97e+03 1.97e+03 1.97e+03  30.12  30.13
+Gather               3  112      1 1.73e+03 1.73e+03 1.73e+03  27.40  27.42
+Gather               3  113      1 1.76e+03 1.76e+03 1.76e+03  27.72  27.74
+Gather               3  114      1 1.77e+03 1.77e+03 1.77e+03  27.88  27.90
+Gather               3  115      1 1.89e+03 1.89e+03 1.89e+03  29.16  29.17
+Gather               3  116      1 1.79e+03 1.79e+03 1.79e+03  28.06  28.08
+Gather               3  117      1  1.9e+03  1.9e+03  1.9e+03  29.37  29.40
+Gather               3  118      1 1.91e+03 1.91e+03 1.91e+03  29.45  29.46
+Gather               3  119      1 1.95e+03 1.95e+03 1.95e+03  30.00  30.01
+Gather               3  120      1 1.99e+03 1.99e+03 1.99e+03  30.32  30.34
+Gather               3  121      1 1.96e+03 1.96e+03 1.96e+03  29.99  30.01
+Gather               3  122      1 1.97e+03 1.97e+03 1.97e+03  30.05  30.07
+Gather               3  123      1 1.88e+03 1.88e+03 1.88e+03  29.09  29.11
+Gather               3  124      1 1.95e+03 1.95e+03 1.95e+03  30.01  30.03
+Gather               3  125      1  1.9e+03  1.9e+03  1.9e+03  29.29  29.35
+Gather               3  126      1 1.92e+03 1.92e+03 1.92e+03  29.56  29.57
+Gather               3  127      1 1.98e+03 1.98e+03 1.98e+03  30.20  30.22
+Gather               3  128      1  2.2e+03  2.2e+03  2.2e+03  32.42  32.43
+Gather               3  129      1 2.17e+03 2.17e+03 2.17e+03  32.16  32.17
+Gather               3  130      1 2.17e+03 2.17e+03 2.17e+03  32.13  32.14
+Gather               3  131      1 2.17e+03 2.17e+03 2.17e+03  32.17  32.18
+Gather               3  132      1 2.18e+03 2.18e+03 2.18e+03  32.32  32.33
+Gather               3  133      1 2.18e+03 2.18e+03 2.18e+03  32.25  32.27
+Gather               3    *    134  2.2e+03      929     2.76  16.88  16.95
+
+Reduce               2    0      1     1.43     1.43     1.43   0.02   0.03
+Reduce               2    1      1    0.049    0.049    0.049   0.00   0.00
+Reduce               2    2      1     1.43     1.43     1.43   0.03   0.03
+Reduce               2    3      1    0.059    0.059    0.059   0.00   0.00
+Reduce               2    4      1     3.41     3.41     3.41   0.07   0.07
+Reduce               2    5      1    0.055    0.055    0.055   0.00   0.00
+Reduce               2    6      1     1.08     1.08     1.08   0.02   0.02
+Reduce               2    7      1    0.053    0.053    0.053   0.00   0.00
+Reduce               2    8      1     8.49     8.49     8.49   0.18   0.18
+Reduce               2    9      1    0.067    0.067    0.067   0.00   0.00
+Reduce               2   10      1     1.28     1.28     1.28   0.03   0.03
+Reduce               2   11      1     0.06     0.06     0.06   0.00   0.00
+Reduce               2   12      1     3.94     3.94     3.94   0.09   0.09
+Reduce               2   13      1    0.052    0.052    0.052   0.00   0.00
+Reduce               2   14      1      1.5      1.5      1.5   0.03   0.03
+Reduce               2   15      1    0.058    0.058    0.058   0.00   0.00
+Reduce               2   16      1     27.2     27.2     27.2   0.59   0.59
+Reduce               2   17      1    0.053    0.053    0.053   0.00   0.00
+Reduce               2   18      1     1.02     1.02     1.02   0.02   0.02
+Reduce               2   19      1    0.057    0.057    0.057   0.00   0.00
+Reduce               2   20      1     3.79     3.79     3.79   0.08   0.08
+Reduce               2   21      1    0.057    0.057    0.057   0.00   0.00
+Reduce               2   22      1     1.06     1.06     1.06   0.02   0.02
+Reduce               2   23      1     0.05     0.05     0.05   0.00   0.00
+Reduce               2   24      1     18.5     18.5     18.5   0.40   0.40
+Reduce               2   25      1    0.056    0.056    0.056   0.00   0.00
+Reduce               2   26      1     1.08     1.08     1.08   0.02   0.02
+Reduce               2   27      1    0.055    0.055    0.055   0.00   0.00
+Reduce               2   28      1     6.54     6.54     6.54   0.14   0.14
+Reduce               2   29      1    0.053    0.053    0.053   0.00   0.00
+Reduce               2   30      1     4.02     4.02     4.02   0.09   0.09
+Reduce               2   31      1    0.065    0.065    0.065   0.00   0.00
+Reduce               2   32      1      751      751      751  15.48  15.49
+Reduce               2   33      1    0.071    0.071    0.071   0.00   0.00
+Reduce               2   34      1     16.6     16.6     16.6   0.34   0.34
+Reduce               2   35      1    0.074    0.074    0.074   0.00   0.00
+Reduce               2   36      1     42.4     42.4     42.4   0.87   0.87
+Reduce               2   37      1     0.06     0.06     0.06   0.00   0.00
+Reduce               2   38      1     18.9     18.9     18.9   0.38   0.38
+Reduce               2   39      1     0.06     0.06     0.06   0.00   0.00
+Reduce               2   40      1      211      211      211   4.25   4.25
+Reduce               2   41      1    0.059    0.059    0.059   0.00   0.00
+Reduce               2   42      1     31.4     31.4     31.4   0.61   0.61
+Reduce               2   43      1    0.061    0.061    0.061   0.00   0.00
+Reduce               2   44      1      118      118      118   2.35   2.35
+Reduce               2   45      1    0.054    0.054    0.054   0.00   0.00
+Reduce               2   46      1     19.3     19.3     19.3   0.37   0.37
+Reduce               2   47      1    0.058    0.058    0.058   0.00   0.00
+Reduce               2   48      1      388      388      388   7.61   7.62
+Reduce               2   49      1    0.054    0.054    0.054   0.00   0.00
+Reduce               2   50      1     16.8     16.8     16.8   0.33   0.33
+Reduce               2   51      1    0.057    0.057    0.057   0.00   0.00
+Reduce               2   52      1     68.5     68.5     68.5   1.32   1.32
+Reduce               2   53      1    0.056    0.056    0.056   0.00   0.00
+Reduce               2   54      1     16.9     16.9     16.9   0.32   0.32
+Reduce               2   55      1    0.067    0.067    0.067   0.00   0.00
+Reduce               2   56      1      234      234      234   4.46   4.46
+Reduce               2   57      1    0.059    0.059    0.059   0.00   0.00
+Reduce               2   58      1     32.1     32.1     32.1   0.62   0.62
+Reduce               2   59      1    0.047    0.047    0.047   0.00   0.00
+Reduce               2   60      1      125      125      125   2.41   2.41
+Reduce               2   61      1     0.06     0.06     0.06   0.00   0.00
+Reduce               2   62      1     24.2     24.2     24.2   0.47   0.47
+Reduce               2   63      1    0.054    0.054    0.054   0.00   0.00
+Reduce               2   64      1 1.44e+03 1.44e+03 1.44e+03  26.20  26.22
+Reduce               2   65      1    0.072    0.072    0.072   0.00   0.00
+Reduce               2   66      1     17.6     17.6     17.6   0.33   0.33
+Reduce               2   67      1     0.05     0.05     0.05   0.00   0.00
+Reduce               2   68      1       67       67       67   1.24   1.24
+Reduce               2   69      1    0.053    0.053    0.053   0.00   0.00
+Reduce               2   70      1     32.2     32.2     32.2   0.60   0.60
+Reduce               2   71      1    0.051    0.051    0.051   0.00   0.00
+Reduce               2   72      1      189      189      189   3.44   3.45
+Reduce               2   73      1    0.054    0.054    0.054   0.00   0.00
+Reduce               2   74      1       35       35       35   0.63   0.63
+Reduce               2   75      1    0.056    0.056    0.056   0.00   0.00
+Reduce               2   76      1     67.9     67.9     67.9   1.22   1.22
+Reduce               2   77      1    0.058    0.058    0.058   0.00   0.00
+Reduce               2   78      1     17.5     17.5     17.5   0.31   0.31
+Reduce               2   79      1    0.062    0.062    0.062   0.00   0.00
+Reduce               2   80      1      346      346      346   6.19   6.19
+Reduce               2   81      1     0.06     0.06     0.06   0.00   0.00
+Reduce               2   82      1       17       17       17   0.30   0.30
+Reduce               2   83      1    0.057    0.057    0.057   0.00   0.00
+Reduce               2   84      1     91.3     91.3     91.3   1.56   1.56
+Reduce               2   85      1    0.062    0.062    0.062   0.00   0.00
+Reduce               2   86      1     32.1     32.1     32.1   0.56   0.56
+Reduce               2   87      1    0.065    0.065    0.065   0.00   0.00
+Reduce               2   88      1      154      154      154   2.71   2.71
+Reduce               2   89      1     0.05     0.05     0.05   0.00   0.00
+Reduce               2   90      1     25.4     25.4     25.4   0.44   0.44
+Reduce               2   91      1    0.055    0.055    0.055   0.00   0.00
+Reduce               2   92      1     51.6     51.6     51.6   0.89   0.89
+Reduce               2   93      1    0.061    0.061    0.061   0.00   0.00
+Reduce               2   94      1     17.5     17.5     17.5   0.30   0.30
+Reduce               2   95      1     0.06     0.06     0.06   0.00   0.00
+Reduce               2   96      1      703      703      703  11.52  11.53
+Reduce               2   97      1    0.068    0.068    0.068   0.00   0.00
+Reduce               2   98      1     31.4     31.4     31.4   0.50   0.50
+Reduce               2   99      1    0.058    0.058    0.058   0.00   0.00
+Reduce               2  100      1     51.3     51.3     51.3   0.83   0.83
+Reduce               2  101      1    0.052    0.052    0.052   0.00   0.00
+Reduce               2  102      1     16.6     16.6     16.6   0.26   0.26
+Reduce               2  103      1    0.052    0.052    0.052   0.00   0.00
+Reduce               2  104      1      134      134      134   2.14   2.14
+Reduce               2  105      1    0.051    0.051    0.051   0.00   0.00
+Reduce               2  106      1     16.5     16.5     16.5   0.26   0.26
+Reduce               2  107      1     0.06     0.06     0.06   0.00   0.00
+Reduce               2  108      1     58.9     58.9     58.9   0.94   0.94
+Reduce               2  109      1    0.051    0.051    0.051   0.00   0.00
+Reduce               2  110      1       25       25       25   0.40   0.40
+Reduce               2  111      1    0.056    0.056    0.056   0.00   0.00
+Reduce               2  112      1      393      393      393   6.25   6.25
+Reduce               2  113      1    0.055    0.055    0.055   0.00   0.00
+Reduce               2  114      1     31.9     31.9     31.9   0.50   0.50
+Reduce               2  115      1    0.056    0.056    0.056   0.00   0.00
+Reduce               2  116      1       87       87       87   1.37   1.37
+Reduce               2  117      1    0.054    0.054    0.054   0.00   0.00
+Reduce               2  118      1       24       24       24   0.37   0.37
+Reduce               2  119      1    0.058    0.058    0.058   0.00   0.00
+Reduce               2  120      1      188      188      188   2.87   2.87
+Reduce               2  121      1    0.052    0.052    0.052   0.00   0.00
+Reduce               2  122      1       26       26       26   0.40   0.40
+Reduce               2  123      1    0.061    0.061    0.061   0.00   0.00
+Reduce               2  124      1     71.3     71.3     71.3   1.10   1.10
+Reduce               2  125      1    0.048    0.048    0.048   0.00   0.00
+Reduce               2  126      1     18.4     18.4     18.4   0.28   0.28
+Reduce               2  127      1    0.059    0.059    0.059   0.00   0.00
+Reduce               2  128      1      116      116      116   1.71   1.71
+Reduce               2  129      1    0.082    0.082    0.082   0.00   0.00
+Reduce               2  130      1     16.5     16.5     16.5   0.24   0.24
+Reduce               2  131      1    0.072    0.072    0.072   0.00   0.00
+Reduce               2  132      1     30.9     30.9     30.9   0.46   0.46
+Reduce               2  133      1    0.039    0.039    0.039   0.00   0.00
+Reduce               2    *    134 1.44e+03     51.1    0.039   0.93   0.93
+
+Scatter              4    0      1 2.42e+03 2.42e+03 2.42e+03  35.68  52.38
+Scatter              4    1      1 2.15e+03 2.15e+03 2.15e+03  46.99  47.02
+Scatter              4    2      1 2.16e+03 2.16e+03 2.16e+03  46.78  46.81
+Scatter              4    3      1 2.16e+03 2.16e+03 2.16e+03  46.41  46.45
+Scatter              4    4      1 2.16e+03 2.16e+03 2.16e+03  46.83  46.86
+Scatter              4    5      1 2.16e+03 2.16e+03 2.16e+03  46.76  46.81
+Scatter              4    6      1 2.16e+03 2.16e+03 2.16e+03  46.83  46.88
+Scatter              4    7      1 2.16e+03 2.16e+03 2.16e+03  46.84  46.89
+Scatter              4    8      1 2.14e+03 2.14e+03 2.14e+03  46.62  46.66
+Scatter              4    9      1 2.17e+03 2.17e+03 2.17e+03  46.76  46.80
+Scatter              4   10      1 2.17e+03 2.17e+03 2.17e+03  46.77  46.81
+Scatter              4   11      1 2.17e+03 2.17e+03 2.17e+03  46.79  46.83
+Scatter              4   12      1 2.17e+03 2.17e+03 2.17e+03  46.79  46.83
+Scatter              4   13      1 2.15e+03 2.15e+03 2.15e+03  46.62  46.66
+Scatter              4   14      1 2.17e+03 2.17e+03 2.17e+03  46.83  46.87
+Scatter              4   15      1 2.17e+03 2.17e+03 2.17e+03  46.83  46.88
+Scatter              4   16      1 2.17e+03 2.17e+03 2.17e+03  46.86  46.90
+Scatter              4   17      1 2.18e+03 2.18e+03 2.18e+03  46.76  46.80
+Scatter              4   18      1 2.18e+03 2.18e+03 2.18e+03  46.77  46.81
+Scatter              4   19      1 2.17e+03 2.17e+03 2.17e+03  46.68  46.71
+Scatter              4   20      1 2.18e+03 2.18e+03 2.18e+03  46.79  46.83
+Scatter              4   21      1 2.18e+03 2.18e+03 2.18e+03  46.80  46.84
+Scatter              4   22      1 2.16e+03 2.16e+03 2.16e+03  46.59  46.64
+Scatter              4   23      1 2.18e+03 2.18e+03 2.18e+03  46.84  46.87
+Scatter              4   24      1 2.17e+03 2.17e+03 2.17e+03  46.72  46.76
+Scatter              4   25      1 2.19e+03 2.19e+03 2.19e+03  47.04  47.08
+Scatter              4   26      1 2.19e+03 2.19e+03 2.19e+03  47.05  47.10
+Scatter              4   27      1 2.19e+03 2.19e+03 2.19e+03  46.97  47.01
+Scatter              4   28      1  2.2e+03  2.2e+03  2.2e+03  46.99  47.03
+Scatter              4   29      1  2.2e+03  2.2e+03  2.2e+03  47.03  47.07
+Scatter              4   30      1 2.18e+03 2.18e+03 2.18e+03  46.85  46.89
+Scatter              4   31      1  2.2e+03  2.2e+03  2.2e+03  46.71  46.76
+Scatter              4   32      1 2.22e+03 2.22e+03 2.22e+03  45.83  45.87
+Scatter              4   33      1 2.24e+03 2.24e+03 2.24e+03  46.35  46.39
+Scatter              4   34      1 2.25e+03 2.25e+03 2.25e+03  46.02  46.05
+Scatter              4   35      1 2.27e+03 2.27e+03 2.27e+03  47.17  47.22
+Scatter              4   36      1  2.3e+03  2.3e+03  2.3e+03  46.99  47.11
+Scatter              4   37      1 2.32e+03 2.32e+03 2.32e+03  47.85  47.89
+Scatter              4   38      1 2.32e+03 2.32e+03 2.32e+03  46.81  46.84
+Scatter              4   39      1 2.35e+03 2.35e+03 2.35e+03  48.66  48.71
+Scatter              4   40      1 2.36e+03 2.36e+03 2.36e+03  47.57  47.60
+Scatter              4   41      1 2.38e+03 2.38e+03 2.38e+03  49.03  49.07
+Scatter              4   42      1  2.4e+03  2.4e+03  2.4e+03  46.81  46.85
+Scatter              4   43      1 2.44e+03 2.44e+03 2.44e+03  48.71  48.74
+Scatter              4   44      1 2.45e+03 2.45e+03 2.45e+03  49.01  49.04
+Scatter              4   45      1 2.48e+03 2.48e+03 2.48e+03  49.65  49.70
+Scatter              4   46      1 2.56e+03 2.56e+03 2.56e+03  49.08  49.12
+Scatter              4   47      1 2.54e+03 2.54e+03 2.54e+03  49.56  49.60
+Scatter              4   48      1 2.58e+03 2.58e+03 2.58e+03  50.73  50.78
+Scatter              4   49      1  2.6e+03  2.6e+03  2.6e+03  50.29  50.33
+Scatter              4   50      1 2.59e+03 2.59e+03 2.59e+03  51.58  51.63
+Scatter              4   51      1 2.63e+03 2.63e+03 2.63e+03  50.34  50.37
+Scatter              4   52      1 2.65e+03 2.65e+03 2.65e+03  50.92  50.96
+Scatter              4   53      1 2.69e+03 2.69e+03 2.69e+03  51.23  51.27
+Scatter              4   54      1  2.7e+03  2.7e+03  2.7e+03  51.65  51.68
+Scatter              4   55      1 2.72e+03 2.72e+03 2.72e+03  53.21  53.24
+Scatter              4   56      1 2.74e+03 2.74e+03 2.74e+03  52.11  52.15
+Scatter              4   57      1 2.76e+03 2.76e+03 2.76e+03  52.95  52.98
+Scatter              4   58      1 2.77e+03 2.77e+03 2.77e+03  53.56  53.60
+Scatter              4   59      1 2.82e+03 2.82e+03 2.82e+03  53.95  53.99
+Scatter              4   60      1 2.85e+03 2.85e+03 2.85e+03  54.81  54.85
+Scatter              4   61      1 2.92e+03 2.92e+03 2.92e+03  55.46  55.50
+Scatter              4   62      1 2.95e+03 2.95e+03 2.95e+03  57.09  57.12
+Scatter              4   63      1 2.97e+03 2.97e+03 2.97e+03  56.37  56.40
+Scatter              4   64      1    3e+03    3e+03    3e+03  54.39  54.43
+Scatter              4   65      1 3.01e+03 3.01e+03 3.01e+03  55.55  55.59
+Scatter              4   66      1 3.03e+03 3.03e+03 3.03e+03  56.29  56.33
+Scatter              4   67      1 3.04e+03 3.04e+03 3.04e+03  55.49  55.53
+Scatter              4   68      1 3.08e+03 3.08e+03 3.08e+03  57.00  57.05
+Scatter              4   69      1 3.09e+03 3.09e+03 3.09e+03  57.06  57.10
+Scatter              4   70      1 3.11e+03 3.11e+03 3.11e+03  57.49  57.54
+Scatter              4   71      1 3.14e+03 3.14e+03 3.14e+03  56.25  56.39
+Scatter              4   72      1 3.17e+03 3.17e+03 3.17e+03  57.89  57.93
+Scatter              4   73      1  3.2e+03  3.2e+03  3.2e+03  58.73  58.77
+Scatter              4   74      1 3.23e+03 3.23e+03 3.23e+03  58.29  58.34
+Scatter              4   75      1 3.26e+03 3.26e+03 3.26e+03  57.70  57.73
+Scatter              4   76      1 3.29e+03 3.29e+03 3.29e+03  59.29  59.34
+Scatter              4   77      1 3.32e+03 3.32e+03 3.32e+03  59.85  59.89
+Scatter              4   78      1 3.33e+03 3.33e+03 3.33e+03  58.67  58.71
+Scatter              4   79      1 3.36e+03 3.36e+03 3.36e+03  60.13  60.18
+Scatter              4   80      1 3.37e+03 3.37e+03 3.37e+03  60.17  60.21
+Scatter              4   81      1 3.39e+03 3.39e+03 3.39e+03  60.34  60.38
+Scatter              4   82      1 3.41e+03 3.41e+03 3.41e+03  60.20  60.25
+Scatter              4   83      1 3.42e+03 3.42e+03 3.42e+03  58.92  58.95
+Scatter              4   84      1 3.45e+03 3.45e+03 3.45e+03  59.03  59.06
+Scatter              4   85      1 3.48e+03 3.48e+03 3.48e+03  61.23  61.27
+Scatter              4   86      1 3.51e+03 3.51e+03 3.51e+03  61.43  61.47
+Scatter              4   87      1 3.54e+03 3.54e+03 3.54e+03  61.12  61.15
+Scatter              4   88      1 3.57e+03 3.57e+03 3.57e+03  62.55  62.59
+Scatter              4   89      1 3.59e+03 3.59e+03 3.59e+03  61.53  61.57
+Scatter              4   90      1 3.63e+03 3.63e+03 3.63e+03  62.29  62.33
+Scatter              4   91      1 3.65e+03 3.65e+03 3.65e+03  63.34  63.38
+Scatter              4   92      1 3.67e+03 3.67e+03 3.67e+03  63.28  63.32
+Scatter              4   93      1 3.68e+03 3.68e+03 3.68e+03  63.56  63.61
+Scatter              4   94      1  3.7e+03  3.7e+03  3.7e+03  63.26  63.30
+Scatter              4   95      1 3.72e+03 3.72e+03 3.72e+03  63.53  63.57
+Scatter              4   96      1 3.72e+03 3.72e+03 3.72e+03  61.01  61.06
+Scatter              4   97      1 3.75e+03 3.75e+03 3.75e+03  60.57  60.61
+Scatter              4   98      1 3.77e+03 3.77e+03 3.77e+03  60.21  60.24
+Scatter              4   99      1  3.8e+03  3.8e+03  3.8e+03  60.56  60.61
+Scatter              4  100      1 3.82e+03 3.82e+03 3.82e+03  62.07  62.10
+Scatter              4  101      1 3.84e+03 3.84e+03 3.84e+03  60.32  60.35
+Scatter              4  102      1 3.86e+03 3.86e+03 3.86e+03  60.07  60.12
+Scatter              4  103      1 3.87e+03 3.87e+03 3.87e+03  62.57  62.61
+Scatter              4  104      1 3.89e+03 3.89e+03 3.89e+03  61.96  62.01
+Scatter              4  105      1  3.9e+03  3.9e+03  3.9e+03  62.49  62.64
+Scatter              4  106      1 3.92e+03 3.92e+03 3.92e+03  61.38  61.42
+Scatter              4  107      1 3.94e+03 3.94e+03 3.94e+03  62.77  62.80
+Scatter              4  108      1 3.96e+03 3.96e+03 3.96e+03  62.93  63.06
+Scatter              4  109      1 3.95e+03 3.95e+03 3.95e+03  62.68  62.72
+Scatter              4  110      1    4e+03    4e+03    4e+03  64.24  64.27
+Scatter              4  111      1 4.02e+03 4.02e+03 4.02e+03  61.40  61.43
+Scatter              4  112      1 4.04e+03 4.04e+03 4.04e+03  64.18  64.23
+Scatter              4  113      1 4.06e+03 4.06e+03 4.06e+03  64.19  64.24
+Scatter              4  114      1 4.09e+03 4.09e+03 4.09e+03  64.48  64.51
+Scatter              4  115      1 4.12e+03 4.12e+03 4.12e+03  63.63  63.66
+Scatter              4  116      1 4.15e+03 4.15e+03 4.15e+03  65.19  65.24
+Scatter              4  117      1 4.18e+03 4.18e+03 4.18e+03  64.57  64.62
+Scatter              4  118      1 4.21e+03 4.21e+03 4.21e+03  64.92  64.95
+Scatter              4  119      1 4.22e+03 4.22e+03 4.22e+03  64.75  64.79
+Scatter              4  120      1 4.25e+03 4.25e+03 4.25e+03  64.74  64.78
+Scatter              4  121      1 4.27e+03 4.27e+03 4.27e+03  65.40  65.45
+Scatter              4  122      1 4.31e+03 4.31e+03 4.31e+03  65.88  65.92
+Scatter              4  123      1 4.34e+03 4.34e+03 4.34e+03  67.18  67.22
+Scatter              4  124      1 4.34e+03 4.34e+03 4.34e+03  66.79  66.84
+Scatter              4  125      1  4.4e+03  4.4e+03  4.4e+03  67.78  67.92
+Scatter              4  126      1 4.42e+03 4.42e+03 4.42e+03  68.08  68.10
+Scatter              4  127      1 4.44e+03 4.44e+03 4.44e+03  67.71  67.75
+Scatter              4  128      1 4.46e+03 4.46e+03 4.46e+03  65.84  65.86
+Scatter              4  129      1 4.49e+03 4.49e+03 4.49e+03  66.46  66.49
+Scatter              4  130      1  4.5e+03  4.5e+03  4.5e+03  66.75  66.77
+Scatter              4  131      1 4.52e+03 4.52e+03 4.52e+03  66.95  66.97
+Scatter              4  132      1 4.54e+03 4.54e+03 4.54e+03  67.18  67.20
+Scatter              4  133      1 4.57e+03 4.57e+03 4.57e+03  67.70  67.72
+Scatter              4    *    134 4.57e+03  3.1e+03 2.14e+03  56.39  56.60
+---------------------------------------------------------------------------
+@--- Callsite Message Sent statistics (all, sent bytes) -------------------
+---------------------------------------------------------------------------
+Name              Site Rank   Count       Max      Mean       Min       Sum
+Bcast                1    0       1      1024      1024      1024      1024
+Bcast                1    1       1      1024      1024      1024      1024
+Bcast                1    2       1      1024      1024      1024      1024
+Bcast                1    3       1      1024      1024      1024      1024
+Bcast                1    4       1      1024      1024      1024      1024
+Bcast                1    5       1      1024      1024      1024      1024
+Bcast                1    6       1      1024      1024      1024      1024
+Bcast                1    7       1      1024      1024      1024      1024
+Bcast                1    8       1      1024      1024      1024      1024
+Bcast                1    9       1      1024      1024      1024      1024
+Bcast                1   10       1      1024      1024      1024      1024
+Bcast                1   11       1      1024      1024      1024      1024
+Bcast                1   12       1      1024      1024      1024      1024
+Bcast                1   13       1      1024      1024      1024      1024
+Bcast                1   14       1      1024      1024      1024      1024
+Bcast                1   15       1      1024      1024      1024      1024
+Bcast                1   16       1      1024      1024      1024      1024
+Bcast                1   17       1      1024      1024      1024      1024
+Bcast                1   18       1      1024      1024      1024      1024
+Bcast                1   19       1      1024      1024      1024      1024
+Bcast                1   20       1      1024      1024      1024      1024
+Bcast                1   21       1      1024      1024      1024      1024
+Bcast                1   22       1      1024      1024      1024      1024
+Bcast                1   23       1      1024      1024      1024      1024
+Bcast                1   24       1      1024      1024      1024      1024
+Bcast                1   25       1      1024      1024      1024      1024
+Bcast                1   26       1      1024      1024      1024      1024
+Bcast                1   27       1      1024      1024      1024      1024
+Bcast                1   28       1      1024      1024      1024      1024
+Bcast                1   29       1      1024      1024      1024      1024
+Bcast                1   30       1      1024      1024      1024      1024
+Bcast                1   31       1      1024      1024      1024      1024
+Bcast                1   32       1      1024      1024      1024      1024
+Bcast                1   33       1      1024      1024      1024      1024
+Bcast                1   34       1      1024      1024      1024      1024
+Bcast                1   35       1      1024      1024      1024      1024
+Bcast                1   36       1      1024      1024      1024      1024
+Bcast                1   37       1      1024      1024      1024      1024
+Bcast                1   38       1      1024      1024      1024      1024
+Bcast                1   39       1      1024      1024      1024      1024
+Bcast                1   40       1      1024      1024      1024      1024
+Bcast                1   41       1      1024      1024      1024      1024
+Bcast                1   42       1      1024      1024      1024      1024
+Bcast                1   43       1      1024      1024      1024      1024
+Bcast                1   44       1      1024      1024      1024      1024
+Bcast                1   45       1      1024      1024      1024      1024
+Bcast                1   46       1      1024      1024      1024      1024
+Bcast                1   47       1      1024      1024      1024      1024
+Bcast                1   48       1      1024      1024      1024      1024
+Bcast                1   49       1      1024      1024      1024      1024
+Bcast                1   50       1      1024      1024      1024      1024
+Bcast                1   51       1      1024      1024      1024      1024
+Bcast                1   52       1      1024      1024      1024      1024
+Bcast                1   53       1      1024      1024      1024      1024
+Bcast                1   54       1      1024      1024      1024      1024
+Bcast                1   55       1      1024      1024      1024      1024
+Bcast                1   56       1      1024      1024      1024      1024
+Bcast                1   57       1      1024      1024      1024      1024
+Bcast                1   58       1      1024      1024      1024      1024
+Bcast                1   59       1      1024      1024      1024      1024
+Bcast                1   60       1      1024      1024      1024      1024
+Bcast                1   61       1      1024      1024      1024      1024
+Bcast                1   62       1      1024      1024      1024      1024
+Bcast                1   63       1      1024      1024      1024      1024
+Bcast                1   64       1      1024      1024      1024      1024
+Bcast                1   65       1      1024      1024      1024      1024
+Bcast                1   66       1      1024      1024      1024      1024
+Bcast                1   67       1      1024      1024      1024      1024
+Bcast                1   68       1      1024      1024      1024      1024
+Bcast                1   69       1      1024      1024      1024      1024
+Bcast                1   70       1      1024      1024      1024      1024
+Bcast                1   71       1      1024      1024      1024      1024
+Bcast                1   72       1      1024      1024      1024      1024
+Bcast                1   73       1      1024      1024      1024      1024
+Bcast                1   74       1      1024      1024      1024      1024
+Bcast                1   75       1      1024      1024      1024      1024
+Bcast                1   76       1      1024      1024      1024      1024
+Bcast                1   77       1      1024      1024      1024      1024
+Bcast                1   78       1      1024      1024      1024      1024
+Bcast                1   79       1      1024      1024      1024      1024
+Bcast                1   80       1      1024      1024      1024      1024
+Bcast                1   81       1      1024      1024      1024      1024
+Bcast                1   82       1      1024      1024      1024      1024
+Bcast                1   83       1      1024      1024      1024      1024
+Bcast                1   84       1      1024      1024      1024      1024
+Bcast                1   85       1      1024      1024      1024      1024
+Bcast                1   86       1      1024      1024      1024      1024
+Bcast                1   87       1      1024      1024      1024      1024
+Bcast                1   88       1      1024      1024      1024      1024
+Bcast                1   89       1      1024      1024      1024      1024
+Bcast                1   90       1      1024      1024      1024      1024
+Bcast                1   91       1      1024      1024      1024      1024
+Bcast                1   92       1      1024      1024      1024      1024
+Bcast                1   93       1      1024      1024      1024      1024
+Bcast                1   94       1      1024      1024      1024      1024
+Bcast                1   95       1      1024      1024      1024      1024
+Bcast                1   96       1      1024      1024      1024      1024
+Bcast                1   97       1      1024      1024      1024      1024
+Bcast                1   98       1      1024      1024      1024      1024
+Bcast                1   99       1      1024      1024      1024      1024
+Bcast                1  100       1      1024      1024      1024      1024
+Bcast                1  101       1      1024      1024      1024      1024
+Bcast                1  102       1      1024      1024      1024      1024
+Bcast                1  103       1      1024      1024      1024      1024
+Bcast                1  104       1      1024      1024      1024      1024
+Bcast                1  105       1      1024      1024      1024      1024
+Bcast                1  106       1      1024      1024      1024      1024
+Bcast                1  107       1      1024      1024      1024      1024
+Bcast                1  108       1      1024      1024      1024      1024
+Bcast                1  109       1      1024      1024      1024      1024
+Bcast                1  110       1      1024      1024      1024      1024
+Bcast                1  111       1      1024      1024      1024      1024
+Bcast                1  112       1      1024      1024      1024      1024
+Bcast                1  113       1      1024      1024      1024      1024
+Bcast                1  114       1      1024      1024      1024      1024
+Bcast                1  115       1      1024      1024      1024      1024
+Bcast                1  116       1      1024      1024      1024      1024
+Bcast                1  117       1      1024      1024      1024      1024
+Bcast                1  118       1      1024      1024      1024      1024
+Bcast                1  119       1      1024      1024      1024      1024
+Bcast                1  120       1      1024      1024      1024      1024
+Bcast                1  121       1      1024      1024      1024      1024
+Bcast                1  122       1      1024      1024      1024      1024
+Bcast                1  123       1      1024      1024      1024      1024
+Bcast                1  124       1      1024      1024      1024      1024
+Bcast                1  125       1      1024      1024      1024      1024
+Bcast                1  126       1      1024      1024      1024      1024
+Bcast                1  127       1      1024      1024      1024      1024
+Bcast                1  128       1      1024      1024      1024      1024
+Bcast                1  129       1      1024      1024      1024      1024
+Bcast                1  130       1      1024      1024      1024      1024
+Bcast                1  131       1      1024      1024      1024      1024
+Bcast                1  132       1      1024      1024      1024      1024
+Bcast                1  133       1      1024      1024      1024      1024
+Bcast                1    *     134      1024      1024      1024 1.372e+05
+
+Gather               3    0       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3    1       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3    2       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3    3       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3    4       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3    5       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3    6       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3    7       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3    8       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3    9       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   10       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   11       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   12       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   13       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   14       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   15       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   16       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   17       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   18       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   19       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   20       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   21       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   22       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   23       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   24       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   25       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   26       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   27       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   28       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   29       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   30       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   31       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   32       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   33       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   34       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   35       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   36       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   37       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   38       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   39       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   40       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   41       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   42       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   43       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   44       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   45       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   46       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   47       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   48       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   49       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   50       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   51       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   52       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   53       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   54       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   55       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   56       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   57       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   58       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   59       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   60       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   61       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   62       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   63       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   64       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   65       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   66       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   67       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   68       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   69       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   70       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   71       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   72       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   73       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   74       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   75       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   76       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   77       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   78       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   79       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   80       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   81       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   82       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   83       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   84       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   85       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   86       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   87       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   88       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   89       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   90       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   91       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   92       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   93       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   94       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   95       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   96       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   97       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   98       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3   99       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  100       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  101       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  102       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  103       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  104       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  105       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  106       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  107       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  108       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  109       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  110       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  111       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  112       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  113       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  114       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  115       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  116       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  117       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  118       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  119       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  120       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  121       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  122       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  123       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  124       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  125       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  126       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  127       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  128       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  129       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  130       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  131       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  132       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3  133       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Gather               3    *     134 2.003e+06 2.003e+06 2.003e+06 2.684e+08
+
+Reduce               2    0       1      1024      1024      1024      1024
+Reduce               2    1       1      1024      1024      1024      1024
+Reduce               2    2       1      1024      1024      1024      1024
+Reduce               2    3       1      1024      1024      1024      1024
+Reduce               2    4       1      1024      1024      1024      1024
+Reduce               2    5       1      1024      1024      1024      1024
+Reduce               2    6       1      1024      1024      1024      1024
+Reduce               2    7       1      1024      1024      1024      1024
+Reduce               2    8       1      1024      1024      1024      1024
+Reduce               2    9       1      1024      1024      1024      1024
+Reduce               2   10       1      1024      1024      1024      1024
+Reduce               2   11       1      1024      1024      1024      1024
+Reduce               2   12       1      1024      1024      1024      1024
+Reduce               2   13       1      1024      1024      1024      1024
+Reduce               2   14       1      1024      1024      1024      1024
+Reduce               2   15       1      1024      1024      1024      1024
+Reduce               2   16       1      1024      1024      1024      1024
+Reduce               2   17       1      1024      1024      1024      1024
+Reduce               2   18       1      1024      1024      1024      1024
+Reduce               2   19       1      1024      1024      1024      1024
+Reduce               2   20       1      1024      1024      1024      1024
+Reduce               2   21       1      1024      1024      1024      1024
+Reduce               2   22       1      1024      1024      1024      1024
+Reduce               2   23       1      1024      1024      1024      1024
+Reduce               2   24       1      1024      1024      1024      1024
+Reduce               2   25       1      1024      1024      1024      1024
+Reduce               2   26       1      1024      1024      1024      1024
+Reduce               2   27       1      1024      1024      1024      1024
+Reduce               2   28       1      1024      1024      1024      1024
+Reduce               2   29       1      1024      1024      1024      1024
+Reduce               2   30       1      1024      1024      1024      1024
+Reduce               2   31       1      1024      1024      1024      1024
+Reduce               2   32       1      1024      1024      1024      1024
+Reduce               2   33       1      1024      1024      1024      1024
+Reduce               2   34       1      1024      1024      1024      1024
+Reduce               2   35       1      1024      1024      1024      1024
+Reduce               2   36       1      1024      1024      1024      1024
+Reduce               2   37       1      1024      1024      1024      1024
+Reduce               2   38       1      1024      1024      1024      1024
+Reduce               2   39       1      1024      1024      1024      1024
+Reduce               2   40       1      1024      1024      1024      1024
+Reduce               2   41       1      1024      1024      1024      1024
+Reduce               2   42       1      1024      1024      1024      1024
+Reduce               2   43       1      1024      1024      1024      1024
+Reduce               2   44       1      1024      1024      1024      1024
+Reduce               2   45       1      1024      1024      1024      1024
+Reduce               2   46       1      1024      1024      1024      1024
+Reduce               2   47       1      1024      1024      1024      1024
+Reduce               2   48       1      1024      1024      1024      1024
+Reduce               2   49       1      1024      1024      1024      1024
+Reduce               2   50       1      1024      1024      1024      1024
+Reduce               2   51       1      1024      1024      1024      1024
+Reduce               2   52       1      1024      1024      1024      1024
+Reduce               2   53       1      1024      1024      1024      1024
+Reduce               2   54       1      1024      1024      1024      1024
+Reduce               2   55       1      1024      1024      1024      1024
+Reduce               2   56       1      1024      1024      1024      1024
+Reduce               2   57       1      1024      1024      1024      1024
+Reduce               2   58       1      1024      1024      1024      1024
+Reduce               2   59       1      1024      1024      1024      1024
+Reduce               2   60       1      1024      1024      1024      1024
+Reduce               2   61       1      1024      1024      1024      1024
+Reduce               2   62       1      1024      1024      1024      1024
+Reduce               2   63       1      1024      1024      1024      1024
+Reduce               2   64       1      1024      1024      1024      1024
+Reduce               2   65       1      1024      1024      1024      1024
+Reduce               2   66       1      1024      1024      1024      1024
+Reduce               2   67       1      1024      1024      1024      1024
+Reduce               2   68       1      1024      1024      1024      1024
+Reduce               2   69       1      1024      1024      1024      1024
+Reduce               2   70       1      1024      1024      1024      1024
+Reduce               2   71       1      1024      1024      1024      1024
+Reduce               2   72       1      1024      1024      1024      1024
+Reduce               2   73       1      1024      1024      1024      1024
+Reduce               2   74       1      1024      1024      1024      1024
+Reduce               2   75       1      1024      1024      1024      1024
+Reduce               2   76       1      1024      1024      1024      1024
+Reduce               2   77       1      1024      1024      1024      1024
+Reduce               2   78       1      1024      1024      1024      1024
+Reduce               2   79       1      1024      1024      1024      1024
+Reduce               2   80       1      1024      1024      1024      1024
+Reduce               2   81       1      1024      1024      1024      1024
+Reduce               2   82       1      1024      1024      1024      1024
+Reduce               2   83       1      1024      1024      1024      1024
+Reduce               2   84       1      1024      1024      1024      1024
+Reduce               2   85       1      1024      1024      1024      1024
+Reduce               2   86       1      1024      1024      1024      1024
+Reduce               2   87       1      1024      1024      1024      1024
+Reduce               2   88       1      1024      1024      1024      1024
+Reduce               2   89       1      1024      1024      1024      1024
+Reduce               2   90       1      1024      1024      1024      1024
+Reduce               2   91       1      1024      1024      1024      1024
+Reduce               2   92       1      1024      1024      1024      1024
+Reduce               2   93       1      1024      1024      1024      1024
+Reduce               2   94       1      1024      1024      1024      1024
+Reduce               2   95       1      1024      1024      1024      1024
+Reduce               2   96       1      1024      1024      1024      1024
+Reduce               2   97       1      1024      1024      1024      1024
+Reduce               2   98       1      1024      1024      1024      1024
+Reduce               2   99       1      1024      1024      1024      1024
+Reduce               2  100       1      1024      1024      1024      1024
+Reduce               2  101       1      1024      1024      1024      1024
+Reduce               2  102       1      1024      1024      1024      1024
+Reduce               2  103       1      1024      1024      1024      1024
+Reduce               2  104       1      1024      1024      1024      1024
+Reduce               2  105       1      1024      1024      1024      1024
+Reduce               2  106       1      1024      1024      1024      1024
+Reduce               2  107       1      1024      1024      1024      1024
+Reduce               2  108       1      1024      1024      1024      1024
+Reduce               2  109       1      1024      1024      1024      1024
+Reduce               2  110       1      1024      1024      1024      1024
+Reduce               2  111       1      1024      1024      1024      1024
+Reduce               2  112       1      1024      1024      1024      1024
+Reduce               2  113       1      1024      1024      1024      1024
+Reduce               2  114       1      1024      1024      1024      1024
+Reduce               2  115       1      1024      1024      1024      1024
+Reduce               2  116       1      1024      1024      1024      1024
+Reduce               2  117       1      1024      1024      1024      1024
+Reduce               2  118       1      1024      1024      1024      1024
+Reduce               2  119       1      1024      1024      1024      1024
+Reduce               2  120       1      1024      1024      1024      1024
+Reduce               2  121       1      1024      1024      1024      1024
+Reduce               2  122       1      1024      1024      1024      1024
+Reduce               2  123       1      1024      1024      1024      1024
+Reduce               2  124       1      1024      1024      1024      1024
+Reduce               2  125       1      1024      1024      1024      1024
+Reduce               2  126       1      1024      1024      1024      1024
+Reduce               2  127       1      1024      1024      1024      1024
+Reduce               2  128       1      1024      1024      1024      1024
+Reduce               2  129       1      1024      1024      1024      1024
+Reduce               2  130       1      1024      1024      1024      1024
+Reduce               2  131       1      1024      1024      1024      1024
+Reduce               2  132       1      1024      1024      1024      1024
+Reduce               2  133       1      1024      1024      1024      1024
+Reduce               2    *     134      1024      1024      1024 1.372e+05
+
+Scatter              4    0       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4    1       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4    2       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4    3       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4    4       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4    5       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4    6       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4    7       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4    8       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4    9       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   10       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   11       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   12       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   13       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   14       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   15       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   16       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   17       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   18       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   19       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   20       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   21       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   22       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   23       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   24       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   25       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   26       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   27       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   28       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   29       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   30       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   31       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   32       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   33       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   34       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   35       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   36       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   37       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   38       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   39       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   40       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   41       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   42       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   43       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   44       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   45       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   46       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   47       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   48       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   49       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   50       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   51       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   52       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   53       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   54       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   55       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   56       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   57       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   58       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   59       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   60       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   61       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   62       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   63       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   64       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   65       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   66       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   67       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   68       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   69       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   70       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   71       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   72       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   73       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   74       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   75       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   76       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   77       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   78       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   79       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   80       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   81       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   82       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   83       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   84       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   85       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   86       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   87       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   88       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   89       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   90       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   91       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   92       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   93       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   94       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   95       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   96       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   97       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   98       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4   99       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  100       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  101       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  102       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  103       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  104       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  105       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  106       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  107       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  108       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  109       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  110       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  111       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  112       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  113       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  114       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  115       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  116       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  117       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  118       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  119       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  120       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  121       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  122       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  123       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  124       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  125       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  126       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  127       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  128       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  129       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  130       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  131       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  132       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4  133       1 2.003e+06 2.003e+06 2.003e+06 2.003e+06
+Scatter              4    *     134 2.003e+06 2.003e+06 2.003e+06 2.684e+08
+---------------------------------------------------------------------------
+@--- End of Report --------------------------------------------------------
+---------------------------------------------------------------------------
