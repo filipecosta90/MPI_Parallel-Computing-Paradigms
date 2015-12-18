@@ -10,7 +10,7 @@
 #          after the first executable statement are ignored.
 
 #PBS -N pcp_tp2_2nodes_eth_mpi_openmp
-#PBS -l walltime=00:90:00
+#PBS -l walltime=00:30:00
 #PBS -q mei
 
 #          PBS can send informative email messages to you about the
@@ -34,7 +34,6 @@
 cd MPI_Parallel-Computing-Paradigms
 module purge
 
-module load gnu/4.9.0
 module load gnu/4.9.3
 module load gnu/openmpi_eth/1.8.4
 ompi_info --param mpi all
@@ -50,7 +49,7 @@ max_openmp_processes=32
 
 for (( matrix_size=2048;matrix_size <= $max_matrix; matrix_size+=matrix_size  ))
 do 
-for (( ppn = 35; ppn <= max_ppn; ++ppn )) 
+for (( ppn = 60; ppn <= max_ppn; ++ppn )) 
 do
 echo "Running $sample_size * ppn: $ppn nodes"
 for (( seq_num=1; seq_num <= $sample_size; ++seq_num ))
