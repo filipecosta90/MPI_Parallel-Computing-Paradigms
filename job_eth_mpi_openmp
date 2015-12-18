@@ -9,7 +9,7 @@
 #          PBS directives must come first; any directives
 #          after the first executable statement are ignored.
 
-#PBS -N pcp_tp2_2nodes_eth_extra_openmp
+#PBS -N pcp_tp2_2nodes_eth_mpi_openmp
 #PBS -l walltime=00:90:00
 #PBS -q mei
 
@@ -50,14 +50,14 @@ max_openmp_processes=32
 
 for (( matrix_size=2048;matrix_size <= $max_matrix; matrix_size+=matrix_size  ))
 do 
-for (( ppn = 1; ppn <= max_ppn; ++ppn )) 
+for (( ppn = 35; ppn <= max_ppn; ++ppn )) 
 do
 echo "Running $sample_size * ppn: $ppn nodes"
 for (( seq_num=1; seq_num <= $sample_size; ++seq_num ))
 do
 for (( openmp_processes = 1; openmp_processes <= max_openmp_processes; ++openmp_processes ))
 do
-mpirun -np $ppn --map-by core -mca btl self,sm,tcp --report-bindings bin/eth_mpi_openmp $matrix_size "mapped-by-core-mpi-openmp" "eth_MPI_OMP" "MPI_OMP" 2 $openmp_processes
+mpirun -np $ppn --map-by core -mca btl self,sm,tcp --report-bindings bin/eth_mpi_openmp $matrix_size "mapped-by-core-mpi-openmp" "eth_MPI_OMP_NEW" "MPI_OMP_NEW" 2 $openmp_processes
 done
 done
 done
