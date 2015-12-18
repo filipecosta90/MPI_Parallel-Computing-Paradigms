@@ -36,7 +36,7 @@ module purge
 
 module load gnu/4.9.0
 module load gnu/4.9.3
-module load gnu/openmpi_mx/1.8.4
+module load gnu/openmpi_mx/1.6.3
 ompi_info --param mpi all
 read -r node_info<$PBS_NODEFILE
 
@@ -53,11 +53,11 @@ do
 echo "Running $sample_size * ppn: $ppn nodes"
 for (( seq_num=1; seq_num <= $sample_size; ++seq_num ))
 do
-mpirun -np $ppn --map-by core --report-bindings --mca mtl mx --mca pml cm bin/myri_reduce $matrix_size "mapped-by-core" "myri" "reduce" 2 
+mpirun -np $ppn --report-bindings -mca btl mx,sm,self bin/myri_reduce $matrix_size "mapped-by-core" "myri" "reduce" 2 
 done
 done
 done
 
-mv myri_reduce* myri_results_reduce/
+mv myri_reduce.* myri_results_reduce/
 echo "Done..."
 

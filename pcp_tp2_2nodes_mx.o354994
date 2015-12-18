@@ -1,0 +1,3594 @@
+                 MCA mpi: parameter "mpi_paffinity_alone" (current value: <0>, data source: default value, synonym of: opal_paffinity_alone)
+                          If nonzero, assume that this job is the only (set of) process(es) running on each node and bind processes to processors, starting with processor ID 0
+                 MCA mpi: parameter "mpi_param_check" (current value: <1>, data source: default value)
+                          Whether you want MPI API parameters checked at run-time or not.  Possible values are 0 (no checking) and 1 (perform checking at run-time)
+                 MCA mpi: parameter "mpi_yield_when_idle" (current value: <-1>, data source: default value)
+                          Yield the processor when waiting for MPI communication (for MPI processes, will default to 1 when oversubscribing nodes)
+                 MCA mpi: parameter "mpi_event_tick_rate" (current value: <-1>, data source: default value)
+                          How often to progress TCP communications (0 = never, otherwise specified in microseconds)
+                 MCA mpi: parameter "mpi_show_handle_leaks" (current value: <0>, data source: default value)
+                          Whether MPI_FINALIZE shows all MPI handles that were not freed or not
+                 MCA mpi: parameter "mpi_no_free_handles" (current value: <0>, data source: default value)
+                          Whether to actually free MPI objects when their handles are freed
+                 MCA mpi: parameter "mpi_show_mpi_alloc_mem_leaks" (current value: <0>, data source: default value)
+                          If >0, MPI_FINALIZE will show up to this many instances of memory allocated by MPI_ALLOC_MEM that was not freed by MPI_FREE_MEM
+                 MCA mpi: parameter "mpi_show_mca_params" (current value: <none>, data source: default value)
+                          Whether to show all MCA parameter values during MPI_INIT or not (good for reproducability of MPI jobs for debug purposes). Accepted values are all, default, file, api, and enviro - or a comma delimited combination of them
+                 MCA mpi: parameter "mpi_show_mca_params_file" (current value: <none>, data source: default value)
+                          If mpi_show_mca_params is true, setting this string to a valid filename tells Open MPI to dump all the MCA parameter values into a file suitable for reading via the mca_param_files parameter (good for reproducability of MPI jobs)
+                 MCA mpi: parameter "mpi_keep_peer_hostnames" (current value: <1>, data source: default value)
+                          If nonzero, save the string hostnames of all MPI peer processes (mostly for error / debugging output messages).  This can add quite a bit of memory usage to each MPI process.
+                 MCA mpi: parameter "mpi_abort_delay" (current value: <0>, data source: default value)
+                          If nonzero, print out an identifying message when MPI_ABORT is invoked (hostname, PID of the process that called MPI_ABORT) and delay for that many seconds before exiting (a negative delay value means to never abort).  This allows attaching of a debugger before quitting the job.
+                 MCA mpi: parameter "mpi_abort_print_stack" (current value: <0>, data source: default value)
+                          If nonzero, print out a stack trace when MPI_ABORT is invoked
+                 MCA mpi: parameter "mpi_preconnect_mpi" (current value: <0>, data source: default value, synonyms: mpi_preconnect_all)
+                          Whether to force MPI processes to fully wire-up the MPI connections between MPI processes during MPI_INIT (vs. making connections lazily -- upon the first MPI traffic between each process peer pair)
+                 MCA mpi: parameter "mpi_preconnect_all" (current value: <0>, data source: default value, deprecated, synonym of: mpi_preconnect_mpi)
+                          Whether to force MPI processes to fully wire-up the MPI connections between MPI processes during MPI_INIT (vs. making connections lazily -- upon the first MPI traffic between each process peer pair)
+                 MCA mpi: parameter "mpi_leave_pinned" (current value: <-1>, data source: default value)
+                          Whether to use the "leave pinned" protocol or not.  Enabling this setting can help bandwidth performance when repeatedly sending and receiving large messages with the same buffers over RDMA-based networks (0 = do not use "leave pinned" protocol, 1 = use "leave pinned" protocol, -1 = allow network to choose at runtime).
+                 MCA mpi: parameter "mpi_leave_pinned_pipeline" (current value: <0>, data source: default value)
+                          Whether to use the "leave pinned pipeline" protocol or not.
+                 MCA mpi: parameter "mpi_warn_on_fork" (current value: <1>, data source: default value)
+                          If nonzero, issue a warning if program forks under conditions that could cause system errors
+                 MCA mpi: information "mpi_have_sparse_group_storage" (value: <0>, data source: default value)
+                          Whether this Open MPI installation supports storing of data in MPI groups in "sparse" formats (good for extremely large process count MPI jobs that create many communicators/groups)
+                 MCA mpi: parameter "mpi_use_sparse_group_storage" (current value: <0>, data source: default value)
+                          Whether to use "sparse" storage formats for MPI groups (only relevant if mpi_have_sparse_group_storage is 1)
+                 MCA mpi: parameter "mpi_notify_init_finalize" (current value: <1>, data source: default value)
+                          If nonzero, send two notifications during MPI_INIT: one near when MPI_INIT starts, and another right before MPI_INIT finishes, and send 2 notifications during MPI_FINALIZE: one right when MPI_FINALIZE starts, and another near when MPI_FINALIZE finishes.
+Allocated computing node: compute-641-20
+Running 5 * ppn: 1 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.1.23380.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.1.23384.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.1.23388.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.1.23392.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.1.23396.1.mpiP].
+mpiP: 
+Running 5 * ppn: 2 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.2.23400.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.2.23407.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.2.23414.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.2.23421.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.2.23428.1.mpiP].
+mpiP: 
+Running 5 * ppn: 3 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.3.23436.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.3.23447.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.3.23457.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.3.23468.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.3.23478.1.mpiP].
+mpiP: 
+Running 5 * ppn: 4 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.4.23488.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.4.23501.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.4.23514.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.4.23527.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.4.23540.1.mpiP].
+mpiP: 
+Running 5 * ppn: 5 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.5.23553.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.5.23568.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.5.23583.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.5.23599.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.5.23614.1.mpiP].
+mpiP: 
+Running 5 * ppn: 6 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.6.23630.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.6.23646.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.6.23663.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.6.23680.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.6.23698.1.mpiP].
+mpiP: 
+Running 5 * ppn: 7 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.7.23715.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.7.23734.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.7.23753.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.7.23771.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.7.23791.1.mpiP].
+mpiP: 
+Running 5 * ppn: 8 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.8.23809.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.8.23828.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.8.23849.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.8.23871.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.8.23894.1.mpiP].
+mpiP: 
+Running 5 * ppn: 9 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.9.23916.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.9.23941.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.9.23965.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.9.23987.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.9.24011.1.mpiP].
+mpiP: 
+Running 5 * ppn: 10 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.10.24033.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.10.24059.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.10.24085.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.10.24110.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.10.24135.1.mpiP].
+mpiP: 
+Running 5 * ppn: 11 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.11.24161.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.11.24189.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.11.24216.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.11.24244.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.11.24270.1.mpiP].
+mpiP: 
+Running 5 * ppn: 12 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.12.24299.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.12.24327.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.12.24355.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.12.24382.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.12.24410.1.mpiP].
+mpiP: 
+Running 5 * ppn: 13 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.13.24438.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.13.24467.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.13.24495.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.13.24524.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.13.24554.1.mpiP].
+mpiP: 
+Running 5 * ppn: 14 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.14.24584.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.14.24617.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.14.24650.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.14.24682.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.14.24712.1.mpiP].
+mpiP: 
+Running 5 * ppn: 15 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.15.24743.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.15.24778.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.15.24812.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.15.24844.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.15.24878.1.mpiP].
+mpiP: 
+Running 5 * ppn: 16 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.16.24912.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.16.24947.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.16.24980.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.16.25013.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.16.25047.1.mpiP].
+mpiP: 
+Running 5 * ppn: 17 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.17.25082.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.17.25119.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.17.25158.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.17.25194.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.17.25229.1.mpiP].
+mpiP: 
+Running 5 * ppn: 18 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.18.25265.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.18.25304.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.18.25340.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.18.25377.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.18.25413.1.mpiP].
+mpiP: 
+Running 5 * ppn: 19 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.19.25450.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.19.25490.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.19.25527.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.19.25565.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.19.25605.1.mpiP].
+mpiP: 
+Running 5 * ppn: 20 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.20.25643.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.20.25684.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.20.25725.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.20.25766.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.20.25809.1.mpiP].
+mpiP: 
+Running 5 * ppn: 21 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.21.25849.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.21.25893.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.21.25936.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.21.25978.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.21.26020.1.mpiP].
+mpiP: 
+Running 5 * ppn: 22 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.22.26059.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.22.26107.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.22.26150.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.22.26194.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.22.26239.1.mpiP].
+mpiP: 
+Running 5 * ppn: 23 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.23.26283.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.23.26330.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.23.26373.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.23.26416.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.23.26461.1.mpiP].
+mpiP: 
+Running 5 * ppn: 24 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.24.26506.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.24.26552.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.24.26601.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.24.26648.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.24.26697.1.mpiP].
+mpiP: 
+Running 5 * ppn: 25 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.25.26744.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.25.26794.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.25.26845.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.25.26890.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.25.26938.1.mpiP].
+mpiP: 
+Running 5 * ppn: 26 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.26.26988.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.26.27034.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.26.27087.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.26.27136.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.26.27186.1.mpiP].
+mpiP: 
+Running 5 * ppn: 27 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.27.27237.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.27.27286.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.27.27334.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.27.27386.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.27.27432.1.mpiP].
+mpiP: 
+Running 5 * ppn: 28 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.28.27482.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.28.27533.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.28.27584.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.28.27637.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.28.27688.1.mpiP].
+mpiP: 
+Running 5 * ppn: 29 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.29.27741.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.29.27796.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.29.27848.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.29.27903.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.29.27954.1.mpiP].
+mpiP: 
+Running 5 * ppn: 30 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.30.28005.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.30.28060.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.30.28116.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.30.28169.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.30.28222.1.mpiP].
+mpiP: 
+Running 5 * ppn: 31 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.31.28278.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.31.28340.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.31.28399.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.31.28459.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.31.28516.1.mpiP].
+mpiP: 
+Running 5 * ppn: 32 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.32.28572.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.32.28626.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.32.28686.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.32.28737.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.32.28794.1.mpiP].
+mpiP: 
+Running 5 * ppn: 33 nodes
+Running 5 * ppn: 34 nodes
+Running 5 * ppn: 35 nodes
+Running 5 * ppn: 36 nodes
+Running 5 * ppn: 37 nodes
+Running 5 * ppn: 38 nodes
+Running 5 * ppn: 39 nodes
+Running 5 * ppn: 40 nodes
+Running 5 * ppn: 41 nodes
+Running 5 * ppn: 42 nodes
+Running 5 * ppn: 43 nodes
+Running 5 * ppn: 44 nodes
+Running 5 * ppn: 45 nodes
+Running 5 * ppn: 46 nodes
+Running 5 * ppn: 47 nodes
+Running 5 * ppn: 48 nodes
+Running 5 * ppn: 49 nodes
+Running 5 * ppn: 50 nodes
+Running 5 * ppn: 51 nodes
+Running 5 * ppn: 52 nodes
+Running 5 * ppn: 53 nodes
+Running 5 * ppn: 54 nodes
+Running 5 * ppn: 55 nodes
+Running 5 * ppn: 56 nodes
+Running 5 * ppn: 57 nodes
+Running 5 * ppn: 58 nodes
+Running 5 * ppn: 59 nodes
+Running 5 * ppn: 60 nodes
+Running 5 * ppn: 61 nodes
+Running 5 * ppn: 62 nodes
+Running 5 * ppn: 63 nodes
+Running 5 * ppn: 64 nodes
+Running 5 * ppn: 1 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.1.6021.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.1.6025.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.1.6029.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.1.6033.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.1.6037.1.mpiP].
+mpiP: 
+Running 5 * ppn: 2 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.2.6041.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.2.6048.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.2.6055.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.2.6063.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.2.6070.1.mpiP].
+mpiP: 
+Running 5 * ppn: 3 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.3.6077.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.3.6087.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.3.6097.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.3.6107.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.3.6117.1.mpiP].
+mpiP: 
+Running 5 * ppn: 4 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.4.6127.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.4.6141.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.4.6154.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.4.6167.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.4.6180.1.mpiP].
+mpiP: 
+Running 5 * ppn: 5 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.5.6193.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.5.6209.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.5.6226.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.5.6243.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.5.6258.1.mpiP].
+mpiP: 
+Running 5 * ppn: 6 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.6.6274.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.6.6291.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.6.6308.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.6.6327.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.6.6343.1.mpiP].
+mpiP: 
+Running 5 * ppn: 7 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.7.6361.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.7.6381.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.7.6402.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.7.6420.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.7.6439.1.mpiP].
+mpiP: 
+Running 5 * ppn: 8 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.8.6457.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.8.6478.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.8.6497.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.8.6518.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.8.6539.1.mpiP].
+mpiP: 
+Running 5 * ppn: 9 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.9.6558.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.9.6582.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.9.6606.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.9.6631.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.9.6655.1.mpiP].
+mpiP: 
+Running 5 * ppn: 10 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.10.6679.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.10.6701.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.10.6727.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.10.6754.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.10.6780.1.mpiP].
+mpiP: 
+Running 5 * ppn: 11 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.11.6804.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.11.6831.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.11.6860.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.11.6887.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.11.6913.1.mpiP].
+mpiP: 
+Running 5 * ppn: 12 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.12.6939.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.12.6965.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.12.6994.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.12.7024.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.12.7051.1.mpiP].
+mpiP: 
+Running 5 * ppn: 13 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.13.7080.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.13.7111.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.13.7141.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.13.7170.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.13.7198.1.mpiP].
+mpiP: 
+Running 5 * ppn: 14 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.14.7228.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.14.7257.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.14.7289.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.14.7321.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.14.7353.1.mpiP].
+mpiP: 
+Running 5 * ppn: 15 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.15.7384.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.15.7416.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.15.7451.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.15.7485.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.15.7519.1.mpiP].
+mpiP: 
+Running 5 * ppn: 16 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.16.7552.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.16.7588.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.16.7632.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.16.7665.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.16.7698.1.mpiP].
+mpiP: 
+Running 5 * ppn: 17 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.17.7732.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.17.7769.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.17.7808.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.17.7844.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.17.7881.1.mpiP].
+mpiP: 
+Running 5 * ppn: 18 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.18.7917.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.18.7955.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.18.7992.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.18.8031.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.18.8069.1.mpiP].
+mpiP: 
+Running 5 * ppn: 19 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.19.8105.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.19.8146.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.19.8189.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.19.8228.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.19.8266.1.mpiP].
+mpiP: 
+Running 5 * ppn: 20 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.20.8308.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.20.8349.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.20.8385.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.20.8424.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.20.8465.1.mpiP].
+mpiP: 
+Running 5 * ppn: 21 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.21.8505.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.21.8545.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.21.8585.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.21.8628.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.21.8673.1.mpiP].
+mpiP: 
+Running 5 * ppn: 22 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.22.8715.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.22.8761.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.22.8807.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.22.8850.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.22.8894.1.mpiP].
+mpiP: 
+Running 5 * ppn: 23 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.23.8940.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.23.8986.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.23.9028.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.23.9073.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.23.9120.1.mpiP].
+mpiP: 
+Running 5 * ppn: 24 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.24.9170.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.24.9218.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.24.9264.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.24.9312.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.24.9356.1.mpiP].
+mpiP: 
+Running 5 * ppn: 25 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.25.9401.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.25.9448.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.25.9496.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.25.9545.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.25.9591.1.mpiP].
+mpiP: 
+Running 5 * ppn: 26 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.26.9636.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.26.9680.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.26.9728.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.26.9776.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.26.9827.1.mpiP].
+mpiP: 
+Running 5 * ppn: 27 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.27.9875.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.27.9926.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.27.9975.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.27.10031.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.27.10082.1.mpiP].
+mpiP: 
+Running 5 * ppn: 28 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.28.10132.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.28.10181.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.28.10231.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.28.10284.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.28.10336.1.mpiP].
+mpiP: 
+Running 5 * ppn: 29 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.29.10391.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.29.10451.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.29.10502.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.29.10555.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.29.10611.1.mpiP].
+mpiP: 
+Running 5 * ppn: 30 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.30.10666.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.30.10718.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.30.10774.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.30.10829.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.30.10883.1.mpiP].
+mpiP: 
+Running 5 * ppn: 31 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.31.10937.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.31.10990.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.31.11046.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.31.11101.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.31.11159.1.mpiP].
+mpiP: 
+Running 5 * ppn: 32 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.32.11212.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.32.11271.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.32.11333.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.32.11390.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.32.11448.1.mpiP].
+mpiP: 
+Running 5 * ppn: 33 nodes
+Running 5 * ppn: 34 nodes
+Running 5 * ppn: 35 nodes
+Running 5 * ppn: 36 nodes
+Running 5 * ppn: 37 nodes
+Running 5 * ppn: 38 nodes
+Running 5 * ppn: 39 nodes
+Running 5 * ppn: 40 nodes
+Running 5 * ppn: 41 nodes
+Running 5 * ppn: 42 nodes
+Running 5 * ppn: 43 nodes
+Running 5 * ppn: 44 nodes
+Running 5 * ppn: 45 nodes
+Running 5 * ppn: 46 nodes
+Running 5 * ppn: 47 nodes
+Running 5 * ppn: 48 nodes
+Running 5 * ppn: 49 nodes
+Running 5 * ppn: 50 nodes
+Running 5 * ppn: 51 nodes
+Running 5 * ppn: 52 nodes
+Running 5 * ppn: 53 nodes
+Running 5 * ppn: 54 nodes
+Running 5 * ppn: 55 nodes
+Running 5 * ppn: 56 nodes
+Running 5 * ppn: 57 nodes
+Running 5 * ppn: 58 nodes
+Running 5 * ppn: 59 nodes
+Running 5 * ppn: 60 nodes
+Running 5 * ppn: 61 nodes
+Running 5 * ppn: 62 nodes
+Running 5 * ppn: 63 nodes
+Running 5 * ppn: 64 nodes
+Running 5 * ppn: 1 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.1.20692.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.1.20696.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.1.20700.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.1.20704.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.1.20708.1.mpiP].
+mpiP: 
+Running 5 * ppn: 2 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.2.20712.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.2.20719.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.2.20727.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.2.20734.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.2.20741.1.mpiP].
+mpiP: 
+Running 5 * ppn: 3 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.3.20748.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.3.20758.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.3.20769.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.3.20779.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.3.20790.1.mpiP].
+mpiP: 
+Running 5 * ppn: 4 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.4.20801.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.4.20814.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.4.20827.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.4.20840.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.4.20853.1.mpiP].
+mpiP: 
+Running 5 * ppn: 5 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.5.20866.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.5.20882.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.5.20897.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.5.20913.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.5.20928.1.mpiP].
+mpiP: 
+Running 5 * ppn: 6 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.6.20944.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.6.20961.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.6.20980.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.6.20998.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.6.21018.1.mpiP].
+mpiP: 
+Running 5 * ppn: 7 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.7.21037.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.7.21057.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.7.21075.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.7.21096.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.7.21115.1.mpiP].
+mpiP: 
+Running 5 * ppn: 8 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.8.21135.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.8.21155.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.8.21178.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.8.21201.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.8.21221.1.mpiP].
+mpiP: 
+Running 5 * ppn: 9 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.9.21240.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.9.21263.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.9.21286.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.9.21311.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.9.21335.1.mpiP].
+mpiP: 
+Running 5 * ppn: 10 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.10.21358.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.10.21383.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.10.21408.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.10.21433.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.10.21459.1.mpiP].
+mpiP: 
+Running 5 * ppn: 11 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.11.21483.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.11.21509.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.11.21536.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.11.21564.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.11.21590.1.mpiP].
+mpiP: 
+Running 5 * ppn: 12 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.12.21615.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.12.21643.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.12.21669.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.12.21699.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.12.21726.1.mpiP].
+mpiP: 
+Running 5 * ppn: 13 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.13.21754.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.13.21786.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.13.21816.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.13.21846.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.13.21878.1.mpiP].
+mpiP: 
+Running 5 * ppn: 14 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.14.21909.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.14.21940.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.14.21970.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.14.22002.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.14.22034.1.mpiP].
+mpiP: 
+Running 5 * ppn: 15 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.15.22067.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.15.22099.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.15.22132.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.15.22166.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.15.22198.1.mpiP].
+mpiP: 
+Running 5 * ppn: 16 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.16.22230.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.16.22265.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.16.22301.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.16.22336.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.16.22371.1.mpiP].
+mpiP: 
+Running 5 * ppn: 17 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.17.22407.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.17.22445.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.17.22482.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.17.22517.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.17.22553.1.mpiP].
+mpiP: 
+Running 5 * ppn: 18 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.18.22586.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.18.22622.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.18.22662.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.18.22699.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.18.22736.1.mpiP].
+mpiP: 
+Running 5 * ppn: 19 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.19.22773.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.19.22813.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.19.22854.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.19.22891.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.19.22928.1.mpiP].
+mpiP: 
+Running 5 * ppn: 20 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.20.22966.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.20.23008.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.20.23049.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.20.23090.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.20.23130.1.mpiP].
+mpiP: 
+Running 5 * ppn: 21 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.21.23168.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.21.23212.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.21.23256.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.21.23298.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.21.23343.1.mpiP].
+mpiP: 
+Running 5 * ppn: 22 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.22.23387.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.22.23431.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.22.23505.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.22.23549.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.22.23593.1.mpiP].
+mpiP: 
+Running 5 * ppn: 23 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.23.23637.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.23.23682.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.23.23727.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.23.23773.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.23.23817.1.mpiP].
+mpiP: 
+Running 5 * ppn: 24 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.24.23865.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.24.23917.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.24.23964.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.24.24011.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.24.24057.1.mpiP].
+mpiP: 
+Running 5 * ppn: 25 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.25.24104.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.25.24153.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.25.24199.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.25.24247.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.25.24293.1.mpiP].
+mpiP: 
+Running 5 * ppn: 26 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.26.24344.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.26.24391.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.26.24442.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.26.24491.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.26.24539.1.mpiP].
+mpiP: 
+Running 5 * ppn: 27 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.27.24591.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.27.24642.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.27.24695.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.27.24746.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.27.24796.1.mpiP].
+mpiP: 
+Running 5 * ppn: 28 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.28.24846.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.28.24897.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.28.24949.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.28.25002.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.28.25054.1.mpiP].
+mpiP: 
+Running 5 * ppn: 29 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.29.25113.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.29.25162.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.29.25209.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.29.25259.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.29.25312.1.mpiP].
+mpiP: 
+Running 5 * ppn: 30 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.30.25363.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.30.25420.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.30.25472.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.30.25521.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.30.25576.1.mpiP].
+mpiP: 
+Running 5 * ppn: 31 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.31.25631.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.31.25681.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.31.25738.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.31.25796.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.31.25858.1.mpiP].
+mpiP: 
+Running 5 * ppn: 32 nodes
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.32.25918.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.32.25970.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.32.26028.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.32.26087.1.mpiP].
+mpiP: 
+mpiP: 
+mpiP: mpiP: mpiP V3.4.1 (Build Jun  5 2014/13:01:50)
+mpiP: Direct questions and errors to mpip-help@lists.sourceforge.net
+mpiP: 
+mpiP: 
+mpiP: Storing mpiP output in [./myri_reduce.32.26147.1.mpiP].
+mpiP: 
+Running 5 * ppn: 33 nodes
+Running 5 * ppn: 34 nodes
+Running 5 * ppn: 35 nodes
+Running 5 * ppn: 36 nodes
+Running 5 * ppn: 37 nodes
+Running 5 * ppn: 38 nodes
+Running 5 * ppn: 39 nodes
+Running 5 * ppn: 40 nodes
+Running 5 * ppn: 41 nodes
+Running 5 * ppn: 42 nodes
+Running 5 * ppn: 43 nodes
+Running 5 * ppn: 44 nodes
+Running 5 * ppn: 45 nodes
+Running 5 * ppn: 46 nodes
+Running 5 * ppn: 47 nodes
+Running 5 * ppn: 48 nodes
+Running 5 * ppn: 49 nodes
+Running 5 * ppn: 50 nodes
+Running 5 * ppn: 51 nodes
+Running 5 * ppn: 52 nodes
+Running 5 * ppn: 53 nodes
+Running 5 * ppn: 54 nodes
+Running 5 * ppn: 55 nodes
+Running 5 * ppn: 56 nodes
+Running 5 * ppn: 57 nodes
+Running 5 * ppn: 58 nodes
+Running 5 * ppn: 59 nodes
+Running 5 * ppn: 60 nodes
+Running 5 * ppn: 61 nodes
+Running 5 * ppn: 62 nodes
+Running 5 * ppn: 63 nodes
+Running 5 * ppn: 64 nodes
+Done...
