@@ -1,0 +1,35 @@
+## FICHEIRO MODELO PBS CRIADO PARA A DISCIPLINA DE CPD::PCP
+## GRUPO : FILIPE OLIVEIRA E SERGIO CALDAS
+## DEZ/2015
+
+#!/bin/sh
+
+#          Remarks: A line beginning with # is a comment.
+#          A line beginning with #PBS is a PBS directive.
+#          PBS directives must come first; any directives
+#          after the first executable statement are ignored.
+
+
+
+max_ppn=8
+sample_size=5
+max_matrix=8192
+max_openmp_processes=8
+
+for (( matrix_size=2048;matrix_size <= $max_matrix; matrix_size+=matrix_size  ))
+do 
+for (( ppn = 1; ppn <= max_ppn; ++ppn )) 
+do
+echo "Running $sample_size * ppn: $ppn nodes"
+for (( seq_num=1; seq_num <= $sample_size; ++seq_num ))
+do
+for (( openmp_processes = 1; openmp_processes <= max_openmp_processes; ++openmp_processes ))
+do
+mpirun -np $ppn --map-by core -mca btl self,sm,tcp --report-bindings bin/eth_mpi_openmp $matrix_size "mapped-by-core-mpi-openmp" "eth_MPI_OMP_NEW" "MPI_OMP_NEW" 2 $openmp_processes
+done
+done
+done
+done
+
+echo "Done..."
+
